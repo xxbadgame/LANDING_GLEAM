@@ -1,0 +1,31 @@
+body {
+    background : black;
+    font-family: Urbanist;
+    color: white;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+}
+
+nav ul li{
+    padding: 5px;
+}
+
+#topStart h1,
+#topStart p,
+#topStart #startButton{
+    display: flex;
+    justify-content: center;
+}
+
+#topDecouverte p{
+    display: flex;
+    justify-content: center;
+}
