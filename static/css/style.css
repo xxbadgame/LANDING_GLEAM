@@ -1,5 +1,5 @@
 body {
-    background : black;
+    background : blue;
     font-family: Urbanist;
     color: white;
 }
@@ -7,6 +7,10 @@ body {
 nav{
     display: flex;
     justify-content: space-between;
+}
+
+#logoGleam {
+    width: 5;
 }
 
 nav ul {
