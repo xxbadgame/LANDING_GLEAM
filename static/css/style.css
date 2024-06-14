@@ -1,5 +1,5 @@
 body {
-    background : blue;
+    background: black;
     font-family: Urbanist;
     color: white;
 }
@@ -10,7 +10,8 @@ nav{
 }
 
 #logoGleam {
-    width: 5;
+    width: 4%;
+    height: 5%;
 }
 
 nav ul {
@@ -22,14 +23,81 @@ nav ul li{
     padding: 5px;
 }
 
-#topStart h1,
-#topStart p,
-#topStart #startButton{
+#topStart{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
-#topDecouverte p{
+
+#topDecouverte
+{
     display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#besoin {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
     justify-content: center;
+    margin: 10%;
+    padding: 5%;
+}
+.blur-container {
+    position: absolute;
+    bottom: 10%;
+    width: 80%;
+    height: 100%; 
+    border-radius: 50%;
+    filter: blur(150px);
+    z-index: 1;
+    background-color: #1a1e94aa;
+}
+
+#macOpenAi {
+    position: relative;
+    width: 70%;
+    z-index: 2;
+}
+
+#propulsion {
+    display: flex;
+    align-items: center;
+}
+
+#propulsion #OpenAI{
+    width: 20%;
+    height: 20%;
+    margin-left: 5%;
+}
+
+.microExplication {
+    display: flex;
+    flex-direction: column;
+}
+
+#analyse {
+    display: flex;
+}
+
+#macTalent {
+    width: 50%;
+}
+
+#optimisation {
+    display: flex;
+}
+
+#macProject{
+    width: 50%;
+}
+
+#bottomDecouverte {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
