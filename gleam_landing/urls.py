@@ -6,8 +6,12 @@ from django.conf.urls.static import static
 from discover.views import *
 
 urlpatterns = [
-    path('', index, name='index'),
     path('admin/', admin.site.urls),
+    path('', index, name='index'),
+    path('entreprises/', entreprises, name="entreprises"),
+    path('freelances/', freelances, name="freelances"),
+    path('histoire/', histoire, name="histoire"),
+    
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 if settings.DEBUG:

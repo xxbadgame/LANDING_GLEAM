@@ -1,40 +1,180 @@
+html{
+    overflow-x: hidden;
+}
+
 body {
     background: black;
     font-family: Urbanist;
     color: white;
+    margin: 0;
 }
 
 nav{
     display: flex;
     justify-content: space-between;
+    height: 10vh;
+    padding-top: 2vh;
+}
+
+#logo{
+    width: 20%;
+    display: flex;
+    align-items: center;
 }
 
 #logoGleam {
-    width: 4%;
-    height: 5%;
+    width: auto;
+    max-height: 50%;
+    margin-left: 10%;
+    margin-bottom: 5%;
 }
 
-nav ul {
+nav #menu{
     display: flex;
     list-style-type: none;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
 }
 
-nav ul li{
+nav #menu li {
+    padding-inline: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    position: relative;
+}
+
+nav #menu li a {
+    text-decoration: none;
+    color: white;
+    position: relative;
+}
+
+nav #menu li a::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -2px; /* Positionne la ligne juste en dessous du texte */
+    width: 0;
+    height: 1px; /* Hauteur de la ligne */
+    background-color: #4483FE; /* Couleur de la ligne */
+    transition: width 0.4s ease, left 0.4s ease; /* Ajoute une transition pour l'animation */
+}
+
+nav #menu li:hover a::after {
+    width: 100%; /* Étend la ligne à toute la largeur du lien */
+    left: 0; /* Déplace la ligne pour commencer à partir de la gauche */
+}
+
+
+nav #log{
+    display: flex;
+    justify-content: end;
+    list-style-type: none;
+    padding: 0;
+    width: 20%;
+}
+
+nav #log li{
+    display: flex;
+    align-items: center;
     padding: 5px;
+    margin-right: 5%;
+}
+
+#conn{
+    background: none;
+    border: none;
+    color: white;
+    font-family: Urbanist;
+    font-size: 15px;
+}
+
+#creationCompte{
+    background-color: white;
+    font-family: Urbanist;
+    border: none;
+    border-radius: 100px;
+    width: 150px;
+    height: 50px;
+    font-size: 15px;
 }
 
 #topStart{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
+    height: 80vh;
+}
+
+#preButton{
+    width: 100%;
+    overflow: hidden;
+}
+
+#preButton h1 {
+    font-size: 100px;
+    text-align: center;
+    font-weight:200;
+    margin-top: 10vh;
+    margin-bottom: 2%;
+}
+
+#preButton p {
+    font-size: 30px;
+    text-align: center;
+    font-weight: lighter;
+    margin: 0;
+    color: #aaaaaa;
+}
+
+#startButton{
+    margin: 5%;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    overflow: hidden;
+}
+
+#decouvrirButton{
+    background-color: white;
+    width: 210px;
+    height: 7vh;
+    border-radius: 50px;
+    border: none;
+    font-family: Urbanist;
+    font-size: 25px;
+    margin-right: 1%;
+    font-weight: 300;
+}
+
+#demonstartionButton {
+    background-color: #4483FE;
+    width: 300px;
+    height: 7vh;
+    font-size: 25px;
+    border-radius: 50px;
+    border: none;
+    font-family: Urbanist;
+    color: white;
+    font-weight: 300;
 }
 
 
-#topDecouverte
-{
+#topDecouverte {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 10vh;
+}
+
+#topDecouverte p{
+    font-size: 50px;
+    font-weight: 200;
+    z-index: 2;
 }
 
 #besoin {
@@ -44,40 +184,74 @@ nav ul li{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 10%;
-    padding: 5%;
+    padding-block: 10vh;
 }
+
 .blur-container {
     position: absolute;
     bottom: 10%;
     width: 80%;
     height: 100%; 
     border-radius: 50%;
-    filter: blur(150px);
-    z-index: 1;
-    background-color: #1a1e94aa;
+    filter: blur(200px);
+    z-index: -1;
+    background-color: #1a1e94;
 }
 
 #macOpenAi {
     position: relative;
     width: 70%;
-    z-index: 2;
+    z-index: 3;
 }
 
 #propulsion {
     display: flex;
     align-items: center;
+    justify-content: center;
+}
+
+#propulsion p{
+    font-size: 30px;
 }
 
 #propulsion #OpenAI{
-    width: 20%;
-    height: 20%;
-    margin-left: 5%;
+    width: 15%;
+    height: 15%;
+    margin-left: 3%;
+    display: flex;
+    justify-content: center;
 }
 
 .microExplication {
     display: flex;
     flex-direction: column;
+    margin-inline: 3%;
+}
+
+.microExplication h3{
+    font-size: 60px;
+    font-weight: 300;
+    margin-bottom: 0;
+}
+
+.microExplication p{
+    font-size: 30px;
+    color: #aaaaaa;
+    font-weight: 200;
+}
+
+.microExplication h4{
+    font-size: 45px;
+    font-weight: 200;
+    margin-top: 100px;
+}
+
+#titreAnalyse {
+    font-size: 150px;
+    font-weight: 1000;
+    text-align: center;
+    margin-top: 30vh;
+    overflow: hidden;
 }
 
 #analyse {
@@ -88,6 +262,14 @@ nav ul li{
     width: 50%;
 }
 
+#titreOptimisation {
+    font-size: 150px;
+    font-weight: 1000;
+    text-align: center;
+    margin-top: 30vh;
+    overflow: hidden;
+}
+
 #optimisation {
     display: flex;
 }
@@ -96,8 +278,77 @@ nav ul li{
     width: 50%;
 }
 
-#bottomDecouverte {
+#bottomDecouverte{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 20vh;
+}
+
+#bottomDecouverte h2{
+    font-size: 60px;
+    font-weight: 200;
+}
+
+#finalButton{
+    background-color: #4483FE;
+    color: white;
+    border: none;
+    border-radius: 100px;
+    height: 100px;
+    width: 300px;
+    font-family: Urbanist;
+    font-size: 30px;
+    margin-top: 5vh;
+    font-weight: 200;
+}
+
+footer{
+    margin-top: 20vh;
+    height: 50vh;
+    position: relative;
+}
+
+#rectangle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30px; /* Hauteur du rectangle */
+    filter: blur(50px);
+    background-color: #4482fef9; /* Couleur du rectangle */
+    z-index: 9;
+}
+
+#boxFooter{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+    background-color: black;
+    border: black;
+    display: flex;
+    align-items: center;
+}
+
+#boxFooter #logoFooter{
+    height: 25vh;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 25px;
+    font-weight: 200;
+}
+
+#boxFooter #logoFooter img{
+    height: 150px;
+}
+
+#boxFooter #sommaireFooter {
+    width: 70%;
+    height: 100%;
 }

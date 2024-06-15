@@ -2,40 +2,26 @@
 
 {% block content %}
 
-    <header>
-        <!--Bannière-->
-        <nav>
-            <img src="/media/Logo/whiteLogo.png" alt="logoGleam" id="logoGleam">
-            <ul>
-                <li>ACCUEIL</li>
-                <li>MISSIONS</li>
-                <li>ENTREPRISE</li>
-                <li>À PROPOS</li>
-            </ul>
-            <ul>
-                <li>CONNEXION</li>
-                <li>S'ENREGISTRER</li>
-            </ul>
-        </nav>
-    </header>
-
     <!--Top content-->
     <div id="topStart">
-        <h1>Votre projet, nos freelances sur-mesure.</h1>
-        <p>Nous mettons à votre disposition une équipe de freelances sur-mesure pour votre projet,
-        grâce à l'intelligence artificielle, avec une rapidité adaptée au rythme de votre entreprise.</p>
 
+        <div id="preButton">
+            <h1>Votre <span style="font-weight: 1000; color:#4483FE;">projet</span>,<br> nos <span style="color:#4483FE;">freelances</span><span style="font-weight: 1000;" id="surmesure"> sur-mesure</span><span style="font-weight:bold; color:#4483FE;">.</span></h1>
+            <p>Nous mettons à votre disposition une équipe de freelances sur-mesure pour votre projet,<br>
+            grâce à l'intelligence artificielle, avec une rapidité adaptée au rythme de votre entreprise.</p>
+        </div>
+        
         <div id="startButton">
-            <button>DÉCOUVRIR</button>
-            <button>DÉMONSTARTION</button>
+            <button id="decouvrirButton">DÉCOUVRIR</button>
+            <button id="demonstartionButton">DÉMONSTARTION</button>
         </div>
     </div>
     
 
     <!-- Partie découverte -->
-    <div>
+    <div id="presentation">
         <div id="topDecouverte">
-            <p>Une discussion qui cerne le besoin à 100%</p>
+            <p>Une<span style="font-weight: 800;"> discussion</span> qui cerne le<span style="font-weight: 800;"> besoin à 100%</span></p>
 
             <div id="besoin">
                 <img src="/media/Mac/macOpenAi.png" alt="macOpenAi" id="macOpenAi">
@@ -44,29 +30,32 @@
             
            
             <div id="propulsion">
-                <p>Propulsé par OpenAI</p>
+                <p>Propulsé par<span style="font-weight: 800;"> OpenAI</span></p>
                 <img src="/media/Logo/OpenAI.png" alt="OpenAI" id="OpenAI">
             </div>
         </div>
         
         
         <!-- Analyse -->
-        <h2>Analyse</h2>
+        <h2 id="titreAnalyse">Analyse</h2>
         <div id="analyse">
             <img src="/media/Mac/macTalent.png" alt="macTalent" id="macTalent">
-            <div class="microExplication">
-                <h3>Une équipe sur-mesure pour votre entreprise</h3>
+            <div data-splitting="analyse" class="microExplication">
+                <h3><span style="font-weight: 1000;">Une équipe sur-mesure</span><br> pour votre entreprise</h3>
                 <p>Grâce aux données, nous sommes capables de trouver les freelances parfaitement adaptés pour la réalisation de votre projet.</p>
+                <h4>Analyse Intelligente sur plus de<br><span style="color: #4483FE; font-weight:1000; font-size:70px;"> 1 Million</span> de freelances.</h4>
             </div>
         </div>
         
         <!-- Optimisation -->
-        <h2>Optimisation</h2>
+        <h2 id="titreOptimisation">Optimisation</h2>
         <div id="optimisation">
-            <div class="microExplication">
-                <h3>Suivez votre projet directement sur GLEAM</h3>
+            <div data-splitting="optimisation" class="microExplication">
+                <h3><span style="font-weight: 1000;">Suivez votre projet</span> directement sur GLEAM</h3>
                 <p>Pour simplifier la gestion des tâches et optimiser l'efficacité globale du projet,
                 GLEAM permet de suivre les progrès de vos différents freelances, qu'ils vous rejoignent sur site ou travaillent à distance.</p>
+                <h4><span style="color: #4483FE; font-weight:1000; font-size:70px;">Multipliez x4</span><br> la vitesse réalisation de vos missions.</h4>
+
             </div>
             <img src="/media/Mac/macProject.png" alt="macProjcet" id="macProject">
         </div>
@@ -74,9 +63,8 @@
 
     <!-- call to action -->
     <div id="bottomDecouverte">
-        <h2>N'attendez plus et demandez votre première équipe freelance !</h2>
-        <button>Demandez une équipe</button>
+        <h2>N'attendez plus et parlez nous de votre mission !</h2>
+        <button id="finalButton">Discutez</button>
     </div>
-    
 
 {% endblock %}

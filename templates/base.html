@@ -5,10 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting.css" />
 </head>
 <body>
+    <header>
+        <!--Bannière-->
+        <nav id="navigation">
+            <div id="logo">
+                <img src="/media/Logo/whiteLogo.png" alt="logoGleam" id="logoGleam">
+            </div>          
+            <ul id="menu">
+                <li><a href="{% url "index" %}">ACCUEIL</a></li>
+                <li><a href="{% url "entreprises" %}">ENTREPRISES</a></li>
+                <li><a href="{% url "freelances" %}">FREELANCES</a></li>
+                <li><a href="{% url "histoire" %}">NOTRE HISTOIRE</a></li>
+            </ul>
+            <ul id="log">
+                <li><button id="conn">CONNEXION</button></li>
+                <li><button id="creationCompte">S'ENREGISTRER</button></li>
+            </ul>
+        </nav>
+    </header>
+
     {% block content %}
     
     {% endblock %}
+    <footer>
+        <div id="rectangle"></div>
+        <div id="boxFooter">
+            <div id="logoFooter">
+                <img src="/media/Logo/whiteLogo.png" alt="logoGleam">
+                <p>Illuminez Votre Vision</p>
+            </div> 
+            <div id="sommaireFooter">
+
+            <div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Flip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Observer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Draggable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/MotionPathPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/EaselPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/PixiPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/TextPlugin.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.3/dist/lenis.min.js"></script> 
+    <script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
+
+    <script src="{% static 'js/app.js' %}"></script>
 </body>
 </html>
