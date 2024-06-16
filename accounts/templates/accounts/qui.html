@@ -1,6 +1,28 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <a href="inscriptionEntreprises.html">entreprises</a>
-    <a href="inscriptionFreelances.html">freelances</a>
+<div id="quiEstCe">
+    <div>
+        <h1>Qu'elle type de compte souhaitez-vous créer ?</h1>
+    </div>
+    <div id="choice">
+        <a href="{% url 'inscriptionEntreprises' %}">
+            <div class="carteQui" id="entrepQUI">
+                <h2>Entreprise</h2>
+                <img src="/media/Illustration/entreprise.png" alt="">
+                <h3>J'ai un projet à réaliser</h3>
+            </div>
+        </a>
+        <a href="{% url 'inscriptionFreelances' %}">
+            <div class="carteQui" id="freeQUI">
+                <h2>Freelance</h2>
+                <img src="/media/Illustration/freelance.png" alt="">
+                <h3>Je cherche des missions</h3>
+            </div>
+        </a>
+    </div>
+    <div id="dejaCompte">
+        <a href="{% url "connexion" %}">Vous avez déja un compte ?<span style="color : white; font-weight: 1000;"> Se connecter</a>
+    </div>
+</div>
 {% endblock %}

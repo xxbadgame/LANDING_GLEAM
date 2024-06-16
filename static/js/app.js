@@ -15,13 +15,6 @@ const lastText = document.querySelector("#bottomDecouverte h2")
 const lastButton = document.querySelector("#finalButton")
 const neon = document.querySelector("#rectangle")
 
-// nav
-gsap.from(navigation,{
-    opacity:0,
-    duration:1,
-    y:-25
-})
-
 // Titre
 gsap.from(titre,{
     opacity:0,

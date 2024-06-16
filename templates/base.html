@@ -5,15 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/accounts.css' %}">
     <link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting.css" />
 </head>
+
 <body>
     <header>
         <!--Bannière-->
         <nav id="navigation">
             <div id="logo">
-                <img src="/media/Logo/whiteLogo.png" alt="logoGleam" id="logoGleam">
-            </div>          
+                <a href="{% url "index" %}"><img src="/media/Logo/whiteLogo.png" alt="logoGleam" id="logoGleam"></a>
+            </div>
             <ul id="menu">
                 <li><a href="{% url "index" %}">ACCUEIL</a></li>
                 <li><a href="{% url "entreprises" %}">ENTREPRISES</a></li>
@@ -21,8 +24,8 @@
                 <li><a href="{% url "histoire" %}">NOTRE HISTOIRE</a></li>
             </ul>
             <ul id="log">
-                <li><button id="conn" href="{% url "connexion" %}">CONNEXION</button></li>
-                <li><button id="creationCompte" href="{% url "inscription" %}">S'ENREGISTRER</button></li>
+                <li><a href="{% url "connexion" %}" id="conn">CONNEXION</a></li>
+                <li><a href="{% url "qui" %}" id="creationCompte">S'INSCRIRE</a></li>
             </ul>
         </nav>
     </header>
@@ -58,5 +61,6 @@
     <script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
 
     <script src="{% static 'js/app.js' %}"></script>
+    <script src="{% static 'js/accounts.js' %}"></script>
 </body>
 </html>
