@@ -11,7 +11,9 @@ def inscriptionFreelances(request):
         freelance_form = FreelanceForm(request.POST)
         if user_form.is_valid() and freelance_form.is_valid() :
             with transaction.atomic():
-                user = user_form.save()
+                user = user_form.save(commit=False)
+                user.role = 'freelance'
+                user.save()
                 freelance = freelance_form.save(commit=False)
                 freelance.user = user
                 freelance.save()
@@ -22,7 +24,23 @@ def inscriptionFreelances(request):
     return render(request,'accounts/inscriptionFreelances.html', {'user_form':user_form ,'freelance_form':freelance_form})
 
 def inscriptionEntreprises(request):
-    return render(request, 'accounts/inscriptionEntreprises.html')
+    if request.method == 'POST':
+        user_form = CustomUserForm(request.POST)
+        entreprise_form = EntrepriseForm(request.POST)
+        if user_form.is_valid() and entreprise_form.is_valid() :
+            with transaction.atomic():
+                user = user_form.save(commit=False)
+                user.role = 'entreprise'
+                user.save()
+                entreprise = entreprise_form.save(commit=False)
+                entreprise.user = user
+                entreprise.save()
+            return redirect('index')
+    else:
+        user_form = CustomUserForm()
+        entreprise_form = EntrepriseForm()
+    return render(request,'accounts/inscriptionEntreprises.html', {'user_form':user_form ,'entreprise_form': entreprise_form})
+
 
 def connexion(request):
     return render(request, 'accounts/connexion.html')

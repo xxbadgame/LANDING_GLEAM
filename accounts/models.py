@@ -1,3 +1,4 @@
+from typing import Any
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
@@ -24,7 +25,7 @@ class Entreprise(models.Model):
     
 class Freelance(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, primary_key=True)
-    skills = models.CharField(max_length=50)
+    skills = models.CharField(max_length=255)
     
     def __str__(self):
         return f"{self.user.first_name}-{self.skills}"
