@@ -1,54 +1,31 @@
 from django.shortcuts import render
 from django.contrib.auth import get_user_model, login, logout, authenticate
 from django.shortcuts import redirect
+from django.db import transaction
+from .forms import *
 
-User = get_user_model()
 
 def inscriptionFreelances(request):
-    if request.method == "POST":
-        email = request.POST.get('email')
-        first_name = request.POST.get('first_name')
-        last_name = request.POST.get('last_name')
-        role = 'freelance'
-        password = request.POST.get('password')
-        password2 = request.POST.get('password2')
-        if password == password2:
-            user = User.objects.create_user(email=email, first_name=first_name, last_name=last_name, role=role, password=password)
-            return render(request, 'accounts/connexion.html')
-        else:
-            return render(request, 'accounts/inscriptionFreelances.html', {'error': 'Les mots de passe ne correspondent pas'})
-    return render(request, 'accounts/inscriptionFreelances.html')
-        
+    if request.method == 'POST':
+        user_form = CustomUserForm(request.POST)
+        freelance_form = FreelanceForm(request.POST)
+        if user_form.is_valid() and freelance_form.is_valid() :
+            with transaction.atomic():
+                user = user_form.save()
+                freelance = freelance_form.save(commit=False)
+                freelance.user = user
+                freelance.save()
+            return redirect('index')
+    else:
+        user_form = CustomUserForm()
+        freelance_form = FreelanceForm()
+    return render(request,'accounts/inscriptionFreelances.html', {'user_form':user_form ,'freelance_form':freelance_form})
 
 def inscriptionEntreprises(request):
-    if request.method == "POST":
-        email = request.POST.get('email')
-        first_name = request.POST.get('first_name')
-        last_name = request.POST.get('last_name')
-        role = 'entreprise'
-        password = request.POST.get('password')
-        password2 = request.POST.get('password2')
-        if password == password2:
-            user = User.objects.create_user(email=email, first_name=first_name, last_name=last_name, role=role, password=password)
-            return render(request, 'accounts/connexion.html')
-        else:
-            return render(request, 'accounts/inscriptionEntreprises.html', {'error': 'Les mots de passe ne correspondent pas'})
     return render(request, 'accounts/inscriptionEntreprises.html')
-        
-        
+
 def connexion(request):
-    if request.method == "POST":
-        email = request.POST.get('email')
-        password = request.POST.get('password')
-        
-        user = authenticate(email=email, password=password)
-        if user :
-            login(request, user)
-            return redirect('index')
-        else:
-            return render(request, 'accounts/qui.html')
     return render(request, 'accounts/connexion.html')
 
-                    
 def qui(request):
     return render(request, 'accounts/qui.html')
