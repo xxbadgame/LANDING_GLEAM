@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     margin-top: 5vh;
-
+    overflow: hidden;
 }
 
 #entreprise h1 {
@@ -11,39 +11,6 @@
     font-weight: 200;
     margin-bottom: 0;
 }
-
-#questionEntreprise{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
-#questionEntreprise textarea {
-    color: white;
-    font-family: 'Urbanist', sans-serif;
-    background: none;
-    outline :none;
-    border: 1px solid;
-    border-radius: 8px;
-    border-color: grey;
-    font-size: 30px;
-    font-weight: 200;
-    margin-top: 0;
-    width: 35%;
-    height: 6vh;
-    padding: 10px;
-    resize: none;
-    box-sizing: border-box;
-    overflow: hidden;
-}
-
-#questionEntreprise textarea:focus {
-    outline: 1px solid;
-    outline-color: #4483FE;
-    border-color: #4483FE;
-}
-
-
 
 .svgSiri{
     transition: transform 0.2s ease-in-out;
@@ -94,4 +61,72 @@
     100% {
         transform: rotate(360deg) scale(1);
     }
+}
+
+#Entreprise{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5vh;
+    width: 100%;
+}
+
+
+#questionEntreprise{
+    display: flex;
+    align-items: start;
+    height: 100%;
+}
+
+#textAreaEntreprise{
+    height: 100%;
+}
+
+#questionEntreprise textarea {
+    color: white;
+    font-family: 'Urbanist', sans-serif;
+    background: none;
+    outline :none;
+    border: 1px solid;
+    border-radius: 8px;
+    border-color: grey;
+    font-size: 30px;
+    font-weight: 200;
+    margin-top: 0;
+    width: 50vw;
+    height: 7vh;
+    padding: 10px;
+    resize: none;
+    box-sizing: border-box;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+#questionEntreprise textarea:focus {
+    outline: 1px solid;
+    outline-color: #4483FE;
+    border-color: #4483FE;
+}
+
+#btnEntreprise{
+    height: 7vh;
+    display: flex;
+}
+
+#btnEntreprise button{
+    background-image: url("../../media/fleche-vers-le-haut-noir.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 40%;
+    border: none;
+    border-radius: 8px;
+    height: 100%;
+    width: 5vw;
+    padding: 0;
+    padding: 10px;
+}
+
+#btnEntreprise button:hover{
+    background-color: #4483FE;
+    background-image: url("../../media/fleche-vers-le-haut-blanc.png");
 }

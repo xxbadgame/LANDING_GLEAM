@@ -3,11 +3,14 @@
 {% block content %}
 
 <div id='entreprise'>
+
+
     <div>
         <h1 id="EntrepTitre">Bonjour <span style='color:#4483FE; font-weight:800;'> {{ user.first_name}}</span> !</h1>
     </div>
+
     <div>
-        <svg width="450" height="450" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" class="svgSiri">
+        <svg width="450" height="350" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg" class="svgSiri">
           
             <!--Ombres-->
             <g class="cercleOmbreSiri" opacity="0.4" filter="url(#filter0_f_231_273)">
@@ -137,11 +140,27 @@
               </linearGradient>
             </defs>
           </svg>
-          
     </div>
-    <div id="questionEntreprise">
-        <textarea placeholder="Vous pouvez répondre ici..." required></textarea>
-    </div>
-</div>
 
+    <div>
+        <form id="questionEntreprise" method="POST" data-url="{% url 'BotCreationProjet' %}" data-thread-id="{{ thread_id }}" data-csrf-token="{{ csrf_token }}">
+            {% csrf_token %}
+            <div id="textAreaEntreprise">
+                <textarea name="message" id="chatInput" placeholder="Vous pouvez répondre ici..." required></textarea>
+            </div>
+            <div id="btnEntreprise">
+                <button type="submit"></button>
+            </div>
+        </form>
+    </div>
+
+    <div id="responseArea"></div>
+
+    <script>
+      var botCreationProjetUrl = "{% url 'BotCreationProjet' %}";
+      var threadId = "{{ thread_id }}";
+      var csrfToken = "{{ csrf_token }}";
+  </script>
+
+</div>
 {% endblock %}
