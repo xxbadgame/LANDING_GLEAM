@@ -4,12 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
-    <link rel="stylesheet" href="{% static 'css/accounts/connexion.css' %}">
-    <link rel="stylesheet" href="{% static 'css/accounts/inscriEntreprise.css' %}">
-    <link rel="stylesheet" href="{% static 'css/accounts/inscriFreelance.css' %}">
+    <link rel="stylesheet" href="{% static 'css/accounts/inscription.css' %}">
     <link rel="stylesheet" href="{% static 'css/accounts/qui.css' %}">
+    <link rel="stylesheet" href="{% static 'css/entreprise.css' %}">
 
     <link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,10 +29,17 @@
                 <li><a href="{% url "freelances" %}">FREELANCES</a></li>
                 <li><a href="{% url "histoire" %}">NOTRE HISTOIRE</a></li>
             </ul>
+            {% if user.is_authenticated %}
+                <div id="profilUser">
+                    <a href="{% url "profil" %}"  id="userImg"><img src="/media/utilisateur.png" alt="user"></a>
+                </div>
+            {% else %}
             <ul id="log">
                 <li><a href="{% url "connexion" %}" id="conn">CONNEXION</a></li>
                 <li><a href="{% url "qui" %}" id="creationCompte">S'INSCRIRE</a></li>
             </ul>
+            {% endif %}
+
         </nav>
     </header>
 
@@ -41,7 +47,6 @@
     
     {% endblock %}
     <footer>
-        <div id="rectangle"></div>
         <div id="boxFooter">
             <div id="logoFooter">
                 <img src="/media/Logo/whiteLogo.png" alt="logoGleam">
@@ -61,10 +66,10 @@
     <script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
 
 
-    <script src="{% static 'js/app.js' %}"></script>
-    <script src="{% static 'js/accounts/connexion.js' %}"></script>
-    <script src="{% static 'js/accounts/inscriEntreprise.js' %}"></script>
-    <script src="{% static 'js/accounts/inscriFreelance.js' %}"></script>
-    <script src="{% static 'js/accounts/qui.js' %}"></script>
+    <script src="{% static 'js/anim/global.js' %}"></script>
+    <script src="{% static 'js/anim/connexion.js' %}"></script>
+    <script src="{% static 'js/anim/inscription.js' %}"></script>
+    <script src="{% static 'js/anim/qui.js' %}"></script>
+    <script src="{% static 'js/classicJS/entreprise.js' %}"></script>
 </body>
 </html>

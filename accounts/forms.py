@@ -28,13 +28,12 @@ class EntrepriseForm(forms.ModelForm):
         model = Entreprise
         fields = ['company_name', 'website']
         labels={
-        'first_name': 'Prénom',
-        'last_name': 'Nom',
+        'company_name': "Nom de l'entreprise",
+        'website': 'site web',
         }
         widgets = {
-            'email': forms.TextInput(attrs={'placeholder': 'Entrez votre email'}),
-            'first_name': forms.TextInput(attrs={'placeholder': 'Entrez votre prénom'}),
-            'last_name': forms.TextInput(attrs={'placeholder': 'Entrez votre nom'}),
+            'company_name': forms.TextInput(attrs={'placeholder': 'Entrez le nom de votre entreprise'}),
+            'website': forms.TextInput(attrs={'placeholder': '(Si vous avez un site web)'}),
         }
     
     def __init__(self, *args, **kwargs):
@@ -56,3 +55,13 @@ class FreelanceForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(FreelanceForm, self).__init__(*args, **kwargs)
         self.label_suffix = ''
+        
+        
+class ConnexionForm(forms.Form):
+    email = forms.CharField(max_length=255, required=True)
+    password = forms.CharField(widget=forms.PasswordInput, required=True)
+    def __init__(self, *args, **kwargs):
+        super(ConnexionForm, self).__init__(*args, **kwargs)
+        self.label_suffix = ''
+
+    

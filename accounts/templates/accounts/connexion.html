@@ -1,31 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div id="connexionPage">
-        <div id="connexionBox">
-            <h2>Bonjour !</h2>
-            <div id="preForm">
-                <h1>Se connecter</h1>
-                <p>sur GLEAM</p>
-            </div>
-            <form method="POST" id="connForm">
-                {% csrf_token %}
-                <div class="inputFormAccounts">
-                    <label for="email">E-mail</label>
-                    <input type="email" name="email" id="email" placeholder="Entrez votre e-mail" required>
-                </div>
-                <div class="inputFormAccounts">
-                    <label for="password">Mot de passe</label>
-                    <input type="password" name="password" id="password" placeholder="Entrez votre mot de passe" required>
-                </div>
-                <button id="connButton" type="submit">Se connecter</button>
-                <a href="{% url 'qui' %}" id="pasCompte">Pas encore de compte ?<span style="font-weight:bold; color:white;"> Inscription</span></a>
-            </form>
-        </div>
-        <div id="illustrationConn">
-            <h1>GLEAM</h1>
-            <h2>Illuminez Votre Vision<h2>
-            <img src="/media/Illustration/connexion.png">
-        </div>
+<div id="inscriptionFreelance">
+    <div id="FreelanceForm">
+        <h1>Bonjour !</h1>
+        <h2>Se connecter</h2>
+        <h3>sur GLEAM</h3>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Se connecter</button>
+        </form>
+        <a href="{% url 'qui' %}" id="pasCompte">Vous n'avez pas de compte ? <span style="color:white;font-weight:1000; font-size:15px;">S'inscrire</span></a>
     </div>
+    <div id="FreelanceIllustration">
+        <h1>GLEAM</h1>
+        <img src="/media/Illustration/connexion.png">
+    </div>
+</div>
 {% endblock %}

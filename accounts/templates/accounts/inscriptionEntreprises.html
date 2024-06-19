@@ -1,43 +1,27 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <div id="InscriptionPage">
-        <div id="InscriptionBox">
-            <h2>Bienvenue !</h2>
-            <div id="preForm">
-                <h1>Inscription en tant qu'entreprise</h1>
-                <p>sur GLEAM</p>
-            </div>
-            <form method="POST" id="connForm">
-                {% csrf_token %}
-                <div class="inputFormAccounts">
-                    <label for="email">E-mail</label>
-                    <input type="email" name="email" id="email" placeholder="Entrez votre e-mail" required>
-                </div>
 
-                <div class="inputFormAccounts">
-                    <label for="last_name">Nom de l'entreprise</label>
-                    <input type="text" name="last_name" id="last_name" placeholder="Entrez le nom de l'entreprise" required>
-                </div>
-                
-                <div class="inputFormAccounts">
-                    <label for="password">Mot de passe</label>
-                    <input type="password" name="password" id="password" placeholder="Entrez votre mot de passe" required>
-                </div>
-
-                <div class="inputFormAccounts">
-                    <label for="password2">Confirmer le mot de passe</label>
-                    <input type="password" name="password2" id="password2" placeholder="Entrez votre mot de passe à nouveau" required>
-                </div>
-
-                <button id="inscriEntrepButton" type="submit">S'inscrire</button>
-                <a href="{% url 'connexion' %}" id="pasCompte">Vous avez déja un compte ?<span style="color : white; font-weight: 1000;"> Se connecter</span></a>
-            </form>
-        </div>
-        <div id="illustrationEntreprise">
-            <h1>GLEAM</h1>
-            <h2>Chaque<span style="color:#4483FE; font-weight:800;"> freelance</span> est une touche essentielle<br> à votre <span style="color:#4483FE; font-weight:800;">chef-d'œuvre digital</span>.<h2>
-            <img src="/media/Illustration/entreprise.png">
-        </div>
+<div id="inscriptionFreelance">
+    <div id="FreelanceForm">
+        <h1>Bienvenue !</h1>
+        <h2>Inscription en tant que freelance</h2>
+        <h3>sur GLEAM</h3>
+        <form method="POST">
+            {% csrf_token %}
+            {{ user_form.as_p }}
+            {{ entreprise_form.as_p }}
+            <button type="submit">S'inscrire</button>
+        </form>
+        <a href="{% url 'connexion' %}" id="pasCompte">Vous avez déja un compte ? <span style="color:white;font-weight:1000; font-size:15px;">Se connecter</span></a>
     </div>
+    <div id="FreelanceIllustration">
+        <h1>GLEAM</h1>
+        <h2 id="sousTitreFree">Chaque <span style="color:#4483FE; font-weight:800;">freelance</span> est une touche essentiel à la réalisation de vos<span style="color:#4483FE; font-weight:800;"> chef d'oeuvre</span> digitaux.<h2>
+        <img src="/media/Illustration/entreprise.png">
+        <h2 id="slogantFree">Illuminez Votre Vision.</h2>
+        <img src="/media/Logo/whiteLogo.png" id="endLogoFree">
+    </div>
+</div>
+
 {% endblock %}

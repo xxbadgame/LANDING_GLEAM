@@ -236,3 +236,15 @@ gsap.from(neon, {
         end:"bottom 90%",
     }
 })
+
+
+window.addEventListener('scroll', function() {
+    var navbar = document.getElementById('navigation');
+    var scrollPosition = window.scrollY;
+
+    if (scrollPosition > 500) { // Par exemple, après 50 pixels de défilement
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});

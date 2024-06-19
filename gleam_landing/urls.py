@@ -17,7 +17,9 @@ urlpatterns = [
     path('connexion/', connexion, name="connexion"),
     path('inscriptionFreelances/', inscriptionFreelances, name="inscriptionFreelances"),
     path('inscriptionEntreprises/', inscriptionEntreprises, name="inscriptionEntreprises"),
-    path('qui-etes-vous/', qui, name='qui')
+    path('qui-etes-vous/', qui, name='qui'),
+    path('profil/', profil, name='profil'),
+    path('deconnexion/', deconnexion, name='logout'),
     
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
