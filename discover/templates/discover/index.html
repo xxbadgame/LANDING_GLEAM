@@ -6,14 +6,14 @@
     <div id="topStart">
 
         <div id="preButton">
-            <h1>Votre <span style="font-weight: 1000; color:#4483FE;">projet</span>,<br> nos <span style="color:#4483FE;">freelances</span><span style="font-weight: 1000;" id="surmesure"> sur-mesure</span><span style="font-weight:bold; color:#4483FE;">.</span></h1>
-            <p>Nous mettons à votre disposition une équipe de freelances sur-mesure pour votre projet,<br>
+            <h1>Votre <span style="font-weight: 1000;">projet</span> au<span style="color:#4483FE" id="surmesure"> meilleur prix</span><br>avec des <span style="color:#4483FE;">freelances</span><span style="font-weight: 1000;" id="surmesure"> sur-mesure</span><span style="font-weight:bold; color:#4483FE;">.</span></h1>
+            <p id="sousTexte">Nous mettons à votre disposition une équipe de freelances sur-mesure pour votre projet,<br>
             grâce à l'intelligence artificielle, avec une rapidité adaptée au rythme de votre entreprise.</p>
         </div>
         
-        <div id="startButton">
-            <button id="decouvrirButton">DÉCOUVRIR</button>
-            <button id="demonstartionButton">DÉMONSTRATION</button>
+        <div id="decouvrir">
+            <a id="decouvrirButton" href="#decouvrir">DÉCOUVRIR</a>
+            <a id="demonstartionButton" href="{% url "entreprises" %}">DÉMONSTRATION</a>
         </div>
     </div>
     
@@ -64,7 +64,7 @@
     <!-- call to action -->
     <div id="bottomDecouverte">
         <h2>N'attendez plus et parlez nous de votre mission !</h2>
-        <button id="finalButton">Discutez</button>
+        <a id="finalButton" href="{% url 'entreprises' %}">Discutez</a>
     </div>
 
 {% endblock %}

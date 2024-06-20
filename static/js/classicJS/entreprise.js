@@ -24,9 +24,6 @@ textarea.addEventListener("keydown", () => {
 });
 
 
-// Qui etes vous dans l'entreprise
-// Projet petit(vous estimez moins de 2 semaines), moyen(entre 2 et 8 semaines) ou large(plus de 8 semaines) ?
-
 $(document).ready(function() {
 
     $('#questionEntreprise').on('submit', function(event) {
