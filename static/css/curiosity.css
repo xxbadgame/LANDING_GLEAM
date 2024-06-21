@@ -83,7 +83,7 @@
 }
 
 #questionEntreprise textarea {
-    color: white;
+    color: black;
     font-family: 'Urbanist', sans-serif;
     background: none;
     outline :none;
@@ -124,6 +124,8 @@
     width: 5vw;
     padding: 0;
     padding: 10px;
+    background-color: rgb(195, 195, 195);
+    transition: 0.2s;
 }
 
 #btnEntreprise button:hover{
