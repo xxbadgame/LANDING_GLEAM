@@ -44,12 +44,12 @@ $(document).ready(function() {
             },
             
             success: function(response) {
-
-                $('#responseArea').append('<p>' + response + '</p>');
-
+    
+                $("#responseArea").append('<p>'+response+'</p>')
+        
             },
             error: function(xhr, errmsg, err) {
-                $('#responseArea').append('<p>Erreur: ' + errmsg + '</p>');
+                console.log("erreur")
             }
 
             

@@ -1,8 +1,8 @@
 gsap.registerPlugin(ScrollTrigger)
 
 const navigation = document.querySelector("#navigation")
-const titre = document.querySelector("#preButton h1")
-const sousTitre = document.querySelector("#preButton p")
+const titre = document.querySelector("#titreTop")
+const sousTitre = document.querySelector("#sousTexte")
 const decouvrirButton = document.querySelector("#decouvrirButton")
 const demonstartionButton = document.querySelector("#demonstartionButton")
 const topDecouverte = document.querySelector("#topDecouverte p")
@@ -15,7 +15,44 @@ const lastText = document.querySelector("#bottomDecouverte h2")
 const lastButton = document.querySelector("#finalButton")
 const neon = document.querySelector("#rectangle")
 
-// Titre
+
+
+const titres = gsap.utils.toArray('#titreTop p')
+const tl = gsap.timeline({
+    repeat: -1,
+    repeatDelay: 0,
+})
+
+
+
+titres.forEach(titre => {
+
+    const titresArea = Splitting({
+        target : titre,
+        by:"chars"
+    });
+
+    tl
+        .from(titresArea[0].chars,{
+            opacity:0,
+            y: 80,
+            rotateX: -90,
+            stagger: .02,
+        }, "<")
+
+        .to(titresArea[0].chars,{
+            opacity:0,
+            y: -80,
+            rotateX: 90,
+            stagger: .02,
+            delay : 2,
+        }, "<1")
+
+})
+
+
+
+    // Titre
 gsap.from(titre,{
     opacity:0,
     duration:1,
@@ -143,7 +180,7 @@ let analyseArea = Splitting({
 });
 
 gsap.from(analyseArea[0].chars, {
-    color : "black",
+    color : "white",
     y: 30,
     stagger : 0.05,
     scrollTrigger : {
@@ -160,7 +197,7 @@ let optimisationArea = Splitting({
 });
 
 gsap.from(optimisationArea[0].chars, {
-    color : "black",
+    color : "white",
     y: 20,
     stagger : 0.1,
     scrollTrigger : {
@@ -177,7 +214,7 @@ const lenis = new Lenis()
 lenis.on('scroll', ScrollTrigger.update)
 
 gsap.ticker.add((time)=>{
-  lenis.raf(time * 800)
+  lenis.raf(time * 1000)
 })
 
 gsap.ticker.lagSmoothing(0)

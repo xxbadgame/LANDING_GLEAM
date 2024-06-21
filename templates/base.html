@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <link rel="stylesheet" href="{% static 'css/accounts/inscription.css' %}">
     <link rel="stylesheet" href="{% static 'css/accounts/qui.css' %}">
-    <link rel="stylesheet" href="{% static 'css/entreprise.css' %}">
+    <link rel="stylesheet" href="{% static 'css/entreprises.css' %}">
+    <link rel="stylesheet" href="{% static 'css/curiosity.css' %}">
     <link rel="icon" type="image/png" href="/media/favicon.ico">
 
     <link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting.css" />
@@ -25,7 +26,7 @@
         <!--Bannière-->
         <nav id="navigation">
             <div id="logo">
-                <a href="{% url "index" %}"><img src="/media/Logo/whiteLogo.png" alt="logoGleam" id="logoGleam"></a>
+                <a href="{% url "index" %}"><img src="/media/Logo/blackLogo.png" alt="logoGleam" id="logoGleam"></a>
             </div>
             <ul id="menu">
                 <li><a href="{% url "index" %}">ACCUEIL</a></li>
@@ -35,7 +36,7 @@
             </ul>
             {% if user.is_authenticated %}
                 <div id="profilUser">
-                    <a href="{% url "profil" %}"  id="userImg"><img src="/media/utilisateur.png" alt="user"></a>
+                    <a href="{% url "profil" %}"  id="userImg"><img src="/media/utilisateurBlack.png" alt="user"></a>
                 </div>
             {% else %}
             <ul id="log">
@@ -53,7 +54,7 @@
     <footer>
         <div id="boxFooter">
             <div id="logoFooter">
-                <img src="/media/Logo/whiteLogo.png" alt="logoGleam">
+                <img src="/media/Logo/blackLogo.png" alt="logoGleam">
                 <p>Illuminez Votre Vision</p>
             </div> 
             <div id="sommaireFooter">
@@ -72,6 +73,9 @@
     <script src="{% static 'js/anim/connexion.js' %}"></script>
     <script src="{% static 'js/anim/inscription.js' %}"></script>
     <script src="{% static 'js/anim/qui.js' %}"></script>
+    <script src="{% static 'js/anim/entrepriseAnim.js' %}"></script>
     <script src="{% static 'js/classicJS/entreprise.js' %}"></script>
+    
+    
 </body>
 </html>

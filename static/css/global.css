@@ -1,11 +1,7 @@
-html{
-    overflow-x: hidden;
-}
-
 body {
-    background: black;
+    background: white;
     font-family: Urbanist;
-    color: white;
+    color: black;
     margin: 0;
 }
 
@@ -18,9 +14,9 @@ nav{
     justify-content: space-between;
     align-items: center;
     height: 10vh;
-    background-color: black;
+    background-color: white;
     border-bottom: 1px solid;
-    border-color: rgba(128, 128, 128, 0);
+    border-color: rgba(211, 211, 211, 0);
     position: fixed;
     top: 0;
     left: 0;
@@ -30,7 +26,7 @@ nav{
 }
 
 nav.scrolled {
-    border-color: rgba(128, 128, 128, 0.483);
+    border-color: rgba(194, 194, 194, 0.702);
 }
 
 #logo{
@@ -65,7 +61,7 @@ nav #menu li {
 
 nav #menu li a {
     text-decoration: none;
-    color: white;
+    color: black;
     position: relative;
 }
 
@@ -111,28 +107,45 @@ nav #profilUser {
 #userImg img{
     height: 100%;
     padding-right: 40px;
+    transition: height 0.5s;
+}
+
+#userImg img:hover{
+    height: 120%;
+    padding-right: 40px;
 }
 
 #conn{
-    color: white;
+    color: black;
     font-family: Urbanist;
     font-size: 15px;
     text-decoration: none;
     list-style-type: none;
+    transition: letter-spacing 0.5s;
+}
+
+#conn:hover{
+    letter-spacing: 0.1rem;
 }
 
 #creationCompte{
-    background-color: white;
+    background-color: black;
+    color: white;
     font-family: Urbanist;
     border-radius: 100px;
     width: 150px;
     height: 50px;
     font-size: 15px;
     text-decoration: none;
-    color: black;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: width 0.5s, height 0.5s;
+}
+
+#creationCompte:hover{
+    width: 180px;
+    height: 60px;
 }
 
 footer{
@@ -149,9 +162,9 @@ footer{
     height: 100%;
     width: 100%;
     z-index: 10;
-    background-color: black;
+    background-color: white;
     border-top: 1px solid;
-    border-color: rgba(128, 128, 128, 0.438);
+    border-color: grey;
     display: flex;
     align-items: center;
 }

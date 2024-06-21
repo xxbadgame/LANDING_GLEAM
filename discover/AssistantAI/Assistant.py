@@ -2,9 +2,7 @@ from openai import OpenAI
 import time
 import os
 
-#os.environ.get('OPENAI_API_KEY')
-
-client = OpenAI(api_key=os.environ.get('OPENAI_API_KEY'))
+client = OpenAI(api_key=os.environ.get('AI_API_KEY'))
 
 def create_assistant():
     assistant = client.beta.assistants.create(

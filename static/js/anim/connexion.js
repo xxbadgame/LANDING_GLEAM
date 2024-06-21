@@ -1,5 +1,3 @@
-gsap.registerPlugin(ScrollTrigger)
-
 // Gauche conn
 gsap.from("#connexionBox",{
     opacity:0,

@@ -8,9 +8,12 @@ def index(request):
     return render(request, 'discover/index.html')
 
 def entreprises(request):
+    return render(request, 'discover/entreprises.html')
+
+def curiosity(request):
     thread = create_thread()
     request.session['thread_id'] = thread.id
-    return render(request, 'discover/entreprises.html')
+    return render(request, 'discover/curiosity.html')
 
 def freelances(request):
     return render(request, 'discover/freelances.html')
@@ -22,7 +25,8 @@ def histoire(request):
 def BotCreationProjet(request):
     
     thread_id = request.session.get('thread_id', None)
-    ASSISTANT_ID = os.environ.get('OPENAI_ASS_CDC_KEY')
+    ASSISTANT_ID = os.environ.get('AI_CURIOSITY')
+    print(ASSISTANT_ID)
     
     if request.method == "POST":
         message = request.POST.get('message')

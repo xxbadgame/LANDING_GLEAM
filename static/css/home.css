@@ -1,8 +1,12 @@
+html{
+    overflow-x: hidden;
+}
+
 #topStart{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     height: 80vh;
 }
 
@@ -11,64 +15,127 @@
     overflow: hidden;
 }
 
-#preButton h1 {
+#titreTop{
     font-size: 100px;
     text-align: center;
     font-weight:200;
-    margin-top: 10vh;
-    margin-bottom: 2%;
+    margin-block: 10%;
 }
 
-#preButton p {
-    font-size: 30px;
+#titreTop p{
     text-align: center;
-    font-weight: lighter;
     margin: 0;
-    color: #aaaaaa;
+    line-height: 0;
+}
+
+#sousTexte {
+    font-size: 25px;
+    text-align: center;
+    font-weight: 200;
+    margin: 0;
+    color: rgb(75, 75, 75);
 }
 
 #decouvrir{
     margin: 5%;
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 100%;
+    height: 20vh;
     overflow: hidden;
 }
 
 #decouvrirButton{
-    background-color: white;
+    background-color: black;
     width: 210px;
     height: 7vh;
     border-radius: 50px;
-    border: none;
     font-family: Urbanist;
     font-size: 25px;
-    margin-right: 1%;
+    margin-right: 3%;
     font-weight: 300;
     display: flex;
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    color: black;
+    color: white;
+    transition: width 0.5s, height 0.5s, letter-spacing 0.5s;
+}
+
+#decouvrirButton:hover{
+    width: 230px;
+    height: 8vh;
+    letter-spacing: 0.1rem;
 }
 
 #demonstartionButton {
-    background-color: #4483FE;
     width: 300px;
     height: 7vh;
     font-size: 25px;
     border-radius: 50px;
-    border: none;
     font-family: Urbanist;
-    color: white;
+    color: black;
     font-weight: 300;
-    display: flex;
-    justify-content: center;
     align-items: center;
-    color: white;
+    cursor: pointer;
     text-decoration: none;
+    position: relative;
+    outline: none;
+    border: none;
+    z-index: 0;
+    transition: letter-spacing 0.5s;
 }
 
+#demonstartionButton:hover {
+    transition: 0.5s ease-in-out;
+    color: white;
+    letter-spacing: 0.1rem;
+}
+
+#demonstartionButton::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    left: 0;
+    top: 0;
+    border-radius: 50px;
+    transition: 0.5s ease-in-out;
+}
+
+#demonstartionButton:hover::after {
+    background: transparent;
+    transition: 0.5s ease-in-out;
+}
+
+#demonstartionButton::before {
+    content: "";
+    background: linear-gradient(
+        45deg,
+        #FE981E,#E60CFE,#7030F3,#4483FE
+    );
+    position: absolute;
+    top: -5px;
+    left: -15px;
+    background-size: 600%;
+    z-index: -1;
+    width: 110%;
+    height: 120%;
+    filter: blur(10px);
+    animation: glowing 20s linear infinite;
+    transition: opacity .3s ease-in-out;
+    border-radius: 50px;
+    opacity: 1;
+}
+
+@keyframes glowing{
+    0% {background-position: 0 0;}
+    50% {background-position: 200% 0;}
+    100% {background-position: 0 0;}
+}
 
 #topDecouverte {
     display: flex;
@@ -81,6 +148,7 @@
     font-size: 50px;
     font-weight: 200;
     z-index: 2;
+
 }
 
 #besoin {
@@ -101,7 +169,7 @@
     border-radius: 50%;
     filter: blur(200px);
     z-index: -1;
-    background-color: #1a1e94;
+    background-color: #7130f37b;
 }
 
 #macOpenAi {
@@ -121,8 +189,8 @@
 }
 
 #propulsion #OpenAI{
-    width: 15%;
-    height: 15%;
+    width: 10%;
+    height: 10%;
     margin-left: 3%;
     display: flex;
     justify-content: center;
@@ -142,7 +210,6 @@
 
 .microExplication p{
     font-size: 30px;
-    color: #aaaaaa;
     font-weight: 200;
 }
 

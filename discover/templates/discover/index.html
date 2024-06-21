@@ -6,14 +6,23 @@
     <div id="topStart">
 
         <div id="preButton">
-            <h1>Votre <span style="font-weight: 1000;">projet</span> au<span style="color:#4483FE" id="surmesure"> meilleur prix</span><br>avec des <span style="color:#4483FE;">freelances</span><span style="font-weight: 1000;" id="surmesure"> sur-mesure</span><span style="font-weight:bold; color:#4483FE;">.</span></h1>
-            <p id="sousTexte">Nous mettons à votre disposition une équipe de freelances sur-mesure pour votre projet,<br>
-            grâce à l'intelligence artificielle, avec une rapidité adaptée au rythme de votre entreprise.</p>
+            <div id="titreTop" data-splitting="titre">
+                <p>Vos <span style="font-weight: 1000; color:#E60CFE ">projets</span> aux<span style="font-weight: 1000;" id="surmesure"> meilleurs prix</span><span style="color:#E60CFE; font-weight: 1000;">.</span></p>
+                <p>Des <span style="font-weight: 1000; color:#FE981E;">freelances</span><span style="font-weight: 1000;" id="surmesure"> sur-mesure</span><span style="font-weight:1000; color:#FE981E;">.</span></p>
+                <p>Une <span style="font-weight: 1000; color:#7030F3;">solution</span><span style="font-weight: 1000;" id="surmesure"> clé en main</span><span style="font-weight:1000; color:#7030F3;">.</span></p>
+                <p>Gestion de <span style="font-weight: 1000; color:#4482fe;">projet </span><span style="font-weight: 1000;" id="surmesure"> de A à Z</span><span style="font-weight:1000; color:#4482fe;">.</span></p> 
+                <p>Uniquement<span style="font-weight: 1000; color:#E60CFE;"> chez </span><span style="font-weight: 1000;" id="surmesure"> GLEAM</span><span style="font-weight:1000; color:#E60CFE;">.</span></p>           
+            </div>
         </div>
-        
+
+        <div>
+            <p id="sousTexte">Gleam est une <b>agence web et data décentralisée</b> qui booste vos projets avec une équipe de freelances sur-mesure,<br>
+                 réduisant les coûts et optimisant la gestion pour des <b>résultats exceptionnels</b>.</p>
+        </div>
+
         <div id="decouvrir">
             <a id="decouvrirButton" href="#decouvrir">DÉCOUVRIR</a>
-            <a id="demonstartionButton" href="{% url "entreprises" %}">DÉMONSTRATION</a>
+            <a href="{% url "entreprises" %}"><button id="demonstartionButton" >DÉMONSTRATION</button></a>
         </div>
     </div>
     
@@ -31,7 +40,7 @@
            
             <div id="propulsion">
                 <p>Propulsé par<span style="font-weight: 800;"> OpenAI</span></p>
-                <img src="/media/Logo/OpenAI.png" alt="OpenAI" id="OpenAI">
+                <img src="/media/Logo/blackOpenAI.png" alt="OpenAI" id="OpenAI">
             </div>
         </div>
         

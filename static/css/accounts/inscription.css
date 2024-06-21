@@ -42,25 +42,25 @@
 }
 
 #FreelanceForm input {
-    background-color: black;
+    background-color: none;
     border: 1px solid;
-    border-color: rgb(102, 102, 102);
+    border-color: grey;
     border-radius: 5px;
     height: 50px;
     margin-block: 8px;
-    color: white;
+    color: black;
     font-family: Urbanist;
     padding-inline: 20px;
     font-size: 20px;
 }
 
 #FreelanceForm span{
-    color: rgba(255, 255, 255, 0.534);
+    color: grey;
     font-size: 10px;
 }
 
 #FreelanceForm li{
-    color: rgba(255, 255, 255, 0.534);
+    color: grey;
     font-size: 10px;
 }
 

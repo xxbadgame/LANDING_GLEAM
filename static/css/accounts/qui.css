@@ -26,14 +26,14 @@
 
 #choice a{
     text-decoration: none;
-    color: white;
+    color: black;
 }
 
 #choice .carteQui {
     width: 300px;
     height: 400px;
     border: 1px solid;
-    border-color: white;
+    border-color: grey;
     border-radius: 5px;
     margin-inline: 20px;
     text-align: center;
