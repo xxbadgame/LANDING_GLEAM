@@ -35,6 +35,10 @@
     margin-bottom: 0;
 }
 
+#curiosityTextArea p.questionned {
+    font-size: 40px;
+}
+
 .svgSiri{
     transition: transform 0.2s ease-in-out;
 }
@@ -88,6 +92,7 @@
 
 #suggestions{
     margin-bottom: 3vh;
+    
 }
 
 #suggestions .boxSugg{
@@ -101,9 +106,17 @@
     width: 100%;
     margin: 5px;
     border: none;
-    background-color: rgba(128, 128, 128, 0.234);;
+    background-color: rgba(128, 128, 128, 0.234);
     border-radius: 8px;
     cursor: pointer;
+    font-family: Urbanist;
+    font-size: 20px;
+    transition: 0.5s;
+}
+
+#suggestions .boxSugg button:hover{
+    color: white;
+    background-color: #4483FE;
 }
 
 

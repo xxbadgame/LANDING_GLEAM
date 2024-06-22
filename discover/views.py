@@ -37,8 +37,12 @@ def BotCreationProjet(request):
         Add_message(message=message, thread_id=thread_id)
         
         responseHTML = run_assistant(assistant=assistant, thread_id=thread_id)
-        print(responseHTML)
+     
+        htmlPropre = responseHTML
+        if responseHTML[0:7] == "```html":
+            htmlPropre = responseHTML[7:-3]
         
-        return HttpResponse(responseHTML)
+        print(htmlPropre)
+        return HttpResponse(htmlPropre)
     
-    return render(request, 'discover/entreprises.html')
+    return render(request, 'discover/curiosity.html')

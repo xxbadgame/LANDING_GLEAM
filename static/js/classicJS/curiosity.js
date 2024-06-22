@@ -3,9 +3,10 @@ const svgSiri = document.querySelector(".svgSiri");
 const ombreSiri = document.querySelector(".ombreSiri");
 const cercleOmbreSiri = document.querySelector(".cercleOmbreSiri");
 
+var typed
 
 document.addEventListener('DOMContentLoaded', function() {
-    var typed = new Typed('#curiosityText', {
+    typed = new Typed('#curiosityText', {
       strings: ['Bonjour '+ userFirstName +' !',' Je m\'appelle <span style="color:#FE981E;">Curiosity</span>.', 'Parlons de votre <span style="color:#E60CFE;">entreprise</span> !','Hello '+ userFirstName +' !','My name is<span style="color:#7030F3;"> Curiosity</span>.', 'Let\'s talk about your<span style="color:#FE981E;"> business</span> !'],
       typeSpeed: 50,
       backSpeed: 25,
@@ -31,7 +32,7 @@ textarea.addEventListener("input", e => {
 textarea.addEventListener("keydown", () => {
 
     // Appliquer une mise à l'échelle
-    svgSiri.setAttribute('transform', 'scale(1.2)');
+    svgSiri.setAttribute('transform', 'scale(1.1)');
     cercleOmbreSiri.classList.add('ombreSiri');
 
     // Réinitialiser la mise à l'échelle après une courte période pour permettre le redémarrage
@@ -62,8 +63,36 @@ $(document).ready(function() {
             },
             
             success: function(response) {
-    
-                $("#responseArea").append('<p>'+response+'</p>')
+                
+                var $html = $(response);
+
+                // Place aux questions
+                typed.destroy();
+                document.querySelector('#curiosityTextArea p').classList.add('questionned')
+            
+                var question = $html.filter('h1#questionBot').text()
+                typed = new Typed('#curiosityText', {
+                    strings: [question],
+                    typeSpeed: 25,
+                    loop: false
+                  });
+
+                // ajout des suggestions
+                var sug = $html.filter('ul#suggestionsBot').children('li');
+
+
+                var suggestions = sug.map(function(){
+                    return $(this).text();
+                }).get();
+
+                console.log(suggestions)
+
+                const suggestionsButtons = document.getElementById('suggestions');
+                const buttons = suggestionsButtons.getElementsByTagName('button')
+                
+                for (var i=0; i < suggestions.length; i++){
+                    $(buttons[i]).text(suggestions[i])
+                }
         
             },
             error: function(xhr, errmsg, err) {
