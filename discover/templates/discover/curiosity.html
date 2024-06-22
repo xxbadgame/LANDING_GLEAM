@@ -1,12 +1,28 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% load static %}
 
-{% block content %}
+  <title>Document</title>
+  <link rel="stylesheet" href="{% static 'css/curiosity.css' %}">
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+</head>
+<body>
+  
+
+
+<a href="{% url 'entreprises' %}" id="exitFleche">
+  <button></button>
+</a>
 
 <div id='entreprise'>
 
 
-    <div>
-        <h1 id="EntrepTitre">Bonjour <span style='color:#4483FE; font-weight:800;'> {{ user.first_name}}</span> !</h1>
+    <div id="curiosityTextArea">
+        <p ><span id="curiosityText"></span></p>
     </div>
 
     <div>
@@ -142,36 +158,55 @@
           </svg>
     </div>
 
-    <div id="suggestions">
-      <div class="boxSugg"> 
-        <button id="suggest1"></button>
-        <button id="suggest2"></button>
-      </div>
-      <div class="boxSugg"> 
-          <button id="suggest3"></button>
-          <button id="suggest4"></button>
-      </div>
-    </div>
 
-    <div>
+
+      <div>
+        <div id="suggestions">
+          <div class="boxSugg"> 
+            <button id="suggest1"></button>
+            <button id="suggest2"></button>
+          </div>
+          <div class="boxSugg"> 
+              <button id="suggest3"></button>
+              <button id="suggest4"></button>
+          </div>
+        </div>
+
+        <div>
         <form id="questionEntreprise" method="POST" data-url="{% url 'BotCreationProjet' %}" data-thread-id="{{ thread_id }}" data-csrf-token="{{ csrf_token }}">
             {% csrf_token %}
-            <div id="textAreaEntreprise">
-                <textarea name="message" id="chatInput" placeholder="Vous pouvez répondre ici..." required></textarea>
-            </div>
-            <div id="btnEntreprise">
-                <button type="submit"></button>
-            </div>
-        </form>
-    </div>
 
-    <div id="responseArea"></div>
+            
+              <div id="textAreaEntreprise">
+                  <textarea name="message" id="chatInput" placeholder="Vous pouvez répondre ici..." required></textarea>
+              </div>
+            
+
+              <div id="btnEntreprise">
+                  <button type="submit"></button>
+              </div>
+        </form>
+        </div>
+    </div>  
+
+
 
     <script>
       var botCreationProjetUrl = "{% url 'BotCreationProjet' %}";
       var threadId = "{{ thread_id }}";
       var csrfToken = "{{ csrf_token }}";
+      var userFirstName = "<span style='color : #4483FE;'>{{ user.first_name}}</span>";
   </script>
 
 </div>
-{% endblock %}
+
+
+
+
+
+<script src="{% static 'js/classicJS/curiosity.js' %}"></script>
+<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+
+</body>
+</html>

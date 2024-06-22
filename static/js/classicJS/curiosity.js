@@ -4,6 +4,24 @@ const ombreSiri = document.querySelector(".ombreSiri");
 const cercleOmbreSiri = document.querySelector(".cercleOmbreSiri");
 
 
+document.addEventListener('DOMContentLoaded', function() {
+    var typed = new Typed('#curiosityText', {
+      strings: ['Bonjour '+ userFirstName +' !',' Je m\'appelle <span style="color:#FE981E;">Curiosity</span>.', 'Parlons de votre <span style="color:#E60CFE;">entreprise</span> !','Hello '+ userFirstName +' !','My name is<span style="color:#7030F3;"> Curiosity</span>.', 'Let\'s talk about your<span style="color:#FE981E;"> business</span> !'],
+      typeSpeed: 50,
+      backSpeed: 25,
+      backDelay: 2000,
+      loop: true
+    });
+  });
+
+textarea.addEventListener("focus", function(){
+    document.getElementById("questionEntreprise").classList.add('focused');
+})
+
+textarea.addEventListener('blur', function() {
+    document.getElementById('questionEntreprise').classList.remove('focused');
+});
+
 textarea.addEventListener("input", e => {
     e.target.style.height = '7vh'; // Réinitialiser la hauteur
     e.target.style.height = `${e.target.scrollHeight}px`; // Définir la nouvelle hauteur basée sur scrollHeight

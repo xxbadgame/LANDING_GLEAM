@@ -42,6 +42,11 @@
     border: 1px solid rgb(234, 234, 234);
 }
 
+.entrepriseChoice:hover{
+    width: 45vw;
+    height: 100%;
+}
+
 .entrepriseChoice h1{
     font-size: 85px;
     font-weight: 1000;

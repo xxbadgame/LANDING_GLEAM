@@ -9,7 +9,8 @@ from accounts.views import *
 urlpatterns = [
     path('', index, name='index'),
     path('entreprises/', entreprises, name="entreprises"),
-    path('entreprises/curiosity/', curiosity, name="curiosity"),
+    path('entreprises/curiosityProject/', curiosity, name="curiosityProject"),
+    path('entreprises/curiosityVision/', curiosity, name="curiosityVision"),
     path('votre-projet/', BotCreationProjet, name="BotCreationProjet"),
     path('freelances/', freelances, name="freelances"),
     path('histoire/', histoire, name="histoire"),

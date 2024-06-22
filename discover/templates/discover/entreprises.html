@@ -3,15 +3,20 @@
 {% block content %}
 
 <div id="choiceProjet">
-    <a class="entrepriseChoice" id="entrepriseChoice1" href="">
+    <a class="entrepriseChoice" id="entrepriseChoice1" href="{% url 'curiosityProject' %}">
         <h1>J'ai un <span style="color: #E60CFE;">projet</span>.</h1>
         <h2>La concrétisation de votre projet idéal</h2>  
     </a>
-    <a class="entrepriseChoice" id="entrepriseChoice2" href="">
+    <a class="entrepriseChoice" id="entrepriseChoice2" href="{% url 'curiosityVision' %}">
         <h1>Je <span style="color: #FE981E;">découvre</span>.</h1>
         <h2>Projets data et web pour votre entreprise</h2>
     </a>
 </div>
 
 
+{% endblock %}
+
+{% block jsScript %}
+{% load static %}
+<script src="{% static 'js/anim/entrepriseAnim.js' %}"></script>
 {% endblock %}
