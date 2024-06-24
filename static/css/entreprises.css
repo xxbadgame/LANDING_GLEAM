@@ -68,11 +68,3 @@
 #entrepriseChoice2{
     background-image: url("/media/purpleBuild.png");
 }
-
-#choiceProjet  #entrepriseChoice1:hover{
-    box-shadow: 0 0 40px #8ABACE;
-}
-
-#choiceProjet #entrepriseChoice2:hover{
-    box-shadow: 0 0 40px #E60CFE;
-}

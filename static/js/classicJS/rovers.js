@@ -45,8 +45,18 @@ textarea.addEventListener("keydown", () => {
 
 $(document).ready(function() {
 
+    $('#suggestions button').on('click', function() {
+            
+        var buttonText = $(this).text();
+        var currentInput = $('#chatInput').val();
+        $('#chatInput').val(currentInput + ' ' + buttonText);
+    });
+
     $('#questionEntreprise').on('submit', function(event) {
         event.preventDefault();
+
+        document.querySelector('#cercleCheck').classList.add('submited1')
+        document.querySelector('#suggestions').classList.add('noSuggestions')
 
         var message = $('#chatInput').val();
         $('#chatInput').val('');
@@ -54,7 +64,7 @@ $(document).ready(function() {
         $.ajax(
             
           {
-            url: botCreationProjetUrl,
+            url: roversPersonalityUrl,
             type: "POST",
             data: {
                 message: message,
@@ -63,8 +73,23 @@ $(document).ready(function() {
             },
             
             success: function(response) {
+
+                document.querySelector('#cercleCheck').classList.add('submited2')
+                document.querySelector('#cercleCheck .checkIcon').classList.add('submited')
                 
+                setTimeout(()=>{
+                    document.querySelector('#cercleCheck').classList.remove('submited1'),
+                    document.querySelector('#cercleCheck').classList.remove('submited2'),
+                    document.querySelector('#cercleCheck .checkIcon').classList.remove('submited')
+                    document.querySelector('#suggestions').classList.remove('noSuggestions')
+                },3000)
+
                 var $html = $(response);
+
+                var nbQuestionText = $html.filter('span#nbQuestion').text()
+                const ArrayQuestionTotal = nbQuestionText.split('/').map(element => element.trim());
+                var pourcentageQuestion = (ArrayQuestionTotal[0]/ArrayQuestionTotal[1])*100;
+                $('#pourcentageComp').text(Math.ceil(pourcentageQuestion))
 
                 // Place aux questions
                 typed.destroy();
@@ -84,8 +109,6 @@ $(document).ready(function() {
                 var suggestions = sug.map(function(){
                     return $(this).text();
                 }).get();
-
-                console.log(suggestions)
 
                 const suggestionsButtons = document.getElementById('suggestions');
                 const buttons = suggestionsButtons.getElementsByTagName('button')

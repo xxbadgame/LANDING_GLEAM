@@ -9,9 +9,9 @@ from accounts.views import *
 urlpatterns = [
     path('', index, name='index'),
     path('entreprises/', entreprises, name="entreprises"),
-    path('entreprises/curiosityProject/', curiosity, name="curiosityProject"),
-    path('entreprises/curiosityVision/', curiosity, name="curiosityVision"),
-    path('votre-projet/', BotCreationProjet, name="BotCreationProjet"),
+    path('entreprises/Project/', rovers, name="Project"),
+    path('entreprises/Vision/', rovers, name="Vision"),
+    path('votre-projet/<str:personality>/', roversPersonality, name="roversPersonality"),
     path('freelances/', freelances, name="freelances"),
     path('histoire/', histoire, name="histoire"),
     

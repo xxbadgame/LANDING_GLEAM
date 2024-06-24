@@ -23,6 +23,8 @@ class Entreprise(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, primary_key=True)
     company_name = models.CharField(max_length=255)
     website = models.URLField(null=True, blank=True)
+    curiosityPass = models.BooleanField(default=False)
+    companyInformation = models.TextField(blank=True)
     
     def __str__(self):
         return self.company_name

@@ -6,15 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   {% load static %}
 
-  <link rel="stylesheet" href="{% static 'css/curiosity.css' %}">
+  <link rel="stylesheet" href="{% static 'css/rovers.css' %}">
   <link rel="stylesheet" href="{% static 'css/base.css' %}">
   <link rel="icon" type="image/png" href="/media/favicon.ico">
 
 </head>
 
 <body>
-
-
 
   <a href="{% url 'entreprises' %}" id="exitFleche">
     <button></button>
@@ -26,6 +24,8 @@
     <div id="curiosityTextArea">
       <p><span id="curiosityText"></span></p>
     </div>
+
+
 
     <div>
       <svg width="400" height="350" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -208,52 +208,61 @@
     </div>
 
 
+    
+    <div id="cercleCheck">
+      <div class="checkIcon"></div>
+      
+    </div>
+    <p id="nbQuestion">Pourcentage de compréhension : <span id="pourcentageComp" style="color: #4483FE; font-weight:400;">0</span>%</p>
+
     <div>
       <div id="suggestions">
         <div class="boxSugg">
-          <button id="suggest1">bonjour</button>
-          <button id="suggest2">salut</button>
+          <button id="suggest1">Bonjour, projet en vue !</button>
+          <button id="suggest2">Salut, j'ai un projet !</button>
         </div>
         <div class="boxSugg">
-          <button id="suggest3">hello</button>
-          <button id="suggest4">bonjour curiosity</button>
+          <button id="suggest3">Coucou, projet à discuter !</button>
+          <button id="suggest4">Hey, projet à partager !</button>
         </div>
       </div>
 
       <div>
-        <form id="questionEntreprise" method="POST" data-url="{% url 'BotCreationProjet' %}"
-          data-thread-id="{{ thread_id }}" data-csrf-token="{{ csrf_token }}">
-          {% csrf_token %}
+        {% if user.role == "entreprise" and   %}
+          <form id="questionEntreprise" method="POST" data-url="{% url 'roversPersonality' personality='AI_CURIOSITY' %}"
+            data-thread-id="{{ thread_id }}" data-csrf-token="{{ csrf_token }}">
+            {% csrf_token %}
 
 
-          <div id="textAreaEntreprise">
-            <textarea name="message" id="chatInput" placeholder="Vous pouvez répondre ici..." required></textarea>
-          </div>
+            <div id="textAreaEntreprise">
+              <textarea name="message" id="chatInput" placeholder="Vous pouvez répondre ici..." required></textarea>
+            </div>
 
 
-          <div id="btnEntreprise">
-            <button type="submit"></button>
-          </div>
-        </form>
+            <div id="btnEntreprise">
+              <button type="submit"></button>
+            </div>
+          </form>
+        {% else %}
+          <p>On a déjà les infos sur l'entreprise</p>
+        {% endif %}
+        
       </div>
+      
     </div>
-
-
-
-    <script>
-      var botCreationProjetUrl = "{% url 'BotCreationProjet' %}";
-      var threadId = "{{ thread_id }}";
-      var csrfToken = "{{ csrf_token }}";
-      var userFirstName = "<span style='color : #4483FE;'>{{ user.first_name}}</span>";
-    </script>
 
   </div>
 
 
-
+  <script>
+    var roversPersonalityUrl = "{% url 'roversPersonality' personality='AI_CURIOSITY' %}";
+    var threadId = "{{ thread_id }}";
+    var csrfToken = "{{ csrf_token }}";
+    var userFirstName = "<span style='color : #4483FE;'>{{ user.first_name}}</span>";
+  </script>
 
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>
-  <script src="{% static 'js/classicJS/curiosity.js' %}"></script>
+  <script src="{% static 'js/classicJS/rovers.js' %}"></script>
   <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 
 
