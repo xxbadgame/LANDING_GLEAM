@@ -5,12 +5,12 @@
 <div id="choiceProjet">
 
     {% if user.is_authenticated %}
-        <a class="entrepriseChoice" id="entrepriseChoice1" href="{% url 'Project' %}">
+        <a class="entrepriseChoice" id="entrepriseChoice1" href="{% url 'projects' %}">
             <h1>J'ai un <span style="color: #E60CFE;">projet</span>.</h1>
             <h2>La concrétisation de votre projet idéal</h2>  
         </a>
 
-        <a class="entrepriseChoice" id="entrepriseChoice2" href="{% url 'Vision' %}">
+        <a class="entrepriseChoice" id="entrepriseChoice2" href="{% url 'visions-rovers' %}">
             <h1>Je <span style="color: #FE981E;">découvre</span>.</h1>
             <h2>Projets data et web pour votre entreprise</h2>
         </a>

@@ -228,8 +228,7 @@
       </div>
 
       <div>
-        {% if user.role == "entreprise" and   %}
-          <form id="questionEntreprise" method="POST" data-url="{% url 'roversPersonality' personality='AI_CURIOSITY' %}"
+          <form id="questionEntreprise" method="POST" data-url="{% url 'roversPersonality' %}"
             data-thread-id="{{ thread_id }}" data-csrf-token="{{ csrf_token }}">
             {% csrf_token %}
 
@@ -243,10 +242,7 @@
               <button type="submit"></button>
             </div>
           </form>
-        {% else %}
-          <p>On a déjà les infos sur l'entreprise</p>
-        {% endif %}
-        
+
       </div>
       
     </div>
@@ -255,7 +251,7 @@
 
 
   <script>
-    var roversPersonalityUrl = "{% url 'roversPersonality' personality='AI_CURIOSITY' %}";
+    var roversPersonalityUrl = "{% url 'roversPersonality' %}";
     var threadId = "{{ thread_id }}";
     var csrfToken = "{{ csrf_token }}";
     var userFirstName = "<span style='color : #4483FE;'>{{ user.first_name}}</span>";

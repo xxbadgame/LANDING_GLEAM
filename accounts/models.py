@@ -24,7 +24,9 @@ class Entreprise(models.Model):
     company_name = models.CharField(max_length=255)
     website = models.URLField(null=True, blank=True)
     curiosityPass = models.BooleanField(default=False)
+    WebDataPass = models.BooleanField(default=False)
     companyInformation = models.TextField(blank=True)
+    nombreCDC = models.IntegerField(default=0)
     
     def __str__(self):
         return self.company_name
