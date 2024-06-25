@@ -21,8 +21,8 @@
   <div id='entreprise'>
 
 
-    <div id="curiosityTextArea">
-      <p><span id="curiosityText"></span></p>
+    <div id="WelcomeTextArea">
+      <p><span id="WelcomeText"></span></p>
     </div>
 
 
@@ -213,9 +213,14 @@
       <div class="checkIcon"></div>
       
     </div>
-    <p id="nbQuestion">Pourcentage de compréhension : <span id="pourcentageComp" style="color: #4483FE; font-weight:400;">0</span>%</p>
+    
 
-    <div>
+    <div id="finButton">
+      <button><a href="{% url 'projects-rovers-perseverance' %}">Go to Perseverance</a></button>
+    </div>
+
+    <div id="bigBottom">
+      <p id="nbQuestion">Pourcentage de compréhension : <span id="pourcentageComp" style="color: #4483FE; font-weight:400;">0</span>%</p>
       <div id="suggestions">
         <div class="boxSugg">
           <button id="suggest1">Bonjour, projet en vue !</button>
@@ -249,12 +254,14 @@
 
   </div>
 
-
   <script>
     var roversPersonalityUrl = "{% url 'roversPersonality' %}";
     var threadId = "{{ thread_id }}";
     var csrfToken = "{{ csrf_token }}";
     var userFirstName = "<span style='color : #4483FE;'>{{ user.first_name}}</span>";
+    var personality = "{{ personality }}";
+    var sujetFR = "{{ sujetFR }}";
+    var sujetEN = "{{ sujetEN }}";
   </script>
 
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>

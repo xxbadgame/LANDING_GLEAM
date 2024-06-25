@@ -11,15 +11,46 @@ def index(request):
     return render(request, 'discover/index.html')
 
 def entreprises(request):
-    return render(request, 'discover/entreprises.html')
+    user = request.user
+    entreprise = Entreprise.objects.get(user=user)
+    curiostyPassValidation = entreprise.curiosityPass
+    return render(request, 'discover/entreprises.html', context={'curiostyPassValidation': curiostyPassValidation})
 
 def projects(request):    
-    return render(request,'discover/choixProjet.html')
+    user = request.user
+    entreprise = Entreprise.objects.get(user=user)
+    curiostyPassValidation = entreprise.curiosityPass
+    return render(request,'discover/choixProjet.html', context={'curiostyPassValidation': curiostyPassValidation})
 
 def rovers(request):
     thread = create_thread()
     request.session['thread_id'] = thread.id
-    return render(request, 'discover/rovers.html')
+    
+    referring_url = request.META.get('HTTP_REFERER', 'Unknown')
+    user = request.user
+    entreprise = Entreprise.objects.get(user=user)
+    
+    persoPretty = ''
+    sujetFR = ''
+    sujetEN = ''
+    
+    if entreprise.curiosityPass == False:
+        persoPretty = 'Curiosity'
+        sujetFR = 'entreprise'
+        sujetEN = 'business'
+    elif 'projects' in referring_url and entreprise.curiosityPass:
+        persoPretty = 'Perseverance'
+        sujetFR = 'cahier des charges'
+        sujetEN = 'specifications'
+    elif 'visions' in referring_url and entreprise.curiosityPass:
+        persoPretty = 'Opportunity'
+        sujetFR = 'avancement WEB et DATA'
+        sujetEN = 'WEB and DATA advancement'
+    else :
+        print("erreur")
+    
+    return render(request, 'discover/rovers.html', context={'personality':persoPretty,'sujetFR':sujetFR,'sujetEN':sujetEN})
+
 
 def freelances(request):
     return render(request, 'discover/freelances.html')
@@ -36,6 +67,11 @@ def roversPersonality(request):
     entreprise = Entreprise.objects.get(user=user)
     
     personality = ''
+    
+    #Utiliser pour le front
+    persoPretty = ''
+    sujetFR = ''
+    sujetEN = ''
     
     if entreprise.curiosityPass == False:
         personality = 'AI_CURIOSITY'
@@ -76,9 +112,11 @@ def roversPersonality(request):
                 entreprise.companyInformation = resumeBusiness
                 entreprise.curiosityPass = True
                 entreprise.save()
-                return render(request, 'discover/rovers.html')
+                return HttpResponse("finCuriosity")
+            return HttpResponse(htmlPropre)
+        
         elif personality == 'AI_OPPORTUNITY':
-            pass
+            #Add_message
             # Validation du webData Pass
             # Ajout du réumer a la suite de company_information
             # Ajout de note et de prix sans détails
@@ -92,5 +130,5 @@ def roversPersonality(request):
             creaCahier.save()
             entreprise.nombreCDC += 1
             entreprise.save()
-    
+            
     return render(request, 'discover/rovers.html')

@@ -10,6 +10,14 @@
     <link rel="icon" type="image/png" href="/media/favicon.ico">
 </head>
 <body>
-    <a href="{% url 'projects-rovers' %}">project rovers</a>
+
+
+    {% if curiostyPassValidation %}
+        <a href="{% url 'projects-rovers-perseverance' %}">project rovers</a>
+    {% else %}
+        <a href="{% url 'projects-rovers-curiosity' %}">project rovers</a>
+    {% endif %}
+
+
 </body>
 </html>

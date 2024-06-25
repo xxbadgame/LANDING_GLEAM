@@ -29,13 +29,13 @@
     overflow: hidden;
 }
 
-#curiosityTextArea p {
+#WelcomeTextArea p {
     font-size: 60px;
     font-weight: 200;
     margin-bottom: 0;
 }
 
-#curiosityTextArea p.questionned {
+#WelcomeTextArea p.questionned {
     font-size: 40px;
 }
 
@@ -168,11 +168,6 @@
     animation: submit 0.8s ease;
 }
 
-#nbQuestion{
-    font-size: 30px;
-    font-weight: 200;
-    margin-top: 0;
-}
 
 @keyframes submit {
     0%{
@@ -205,6 +200,29 @@
 
 #cercleCheck .checkIcon.submited{
     display: block;
+}
+
+#bigBottom{
+    display: block;
+    text-align: center;
+}
+
+#bigBottom.fin{
+    display: none;
+}
+
+#finButton{
+    display: none;
+}
+
+#finButton.fin{
+    display: block;
+}
+
+#nbQuestion{
+    font-size: 30px;
+    font-weight: 200;
+    margin-top: 0;
 }
 
 #questionEntreprise{
