@@ -1,0 +1,43 @@
+body{
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dataGallery{
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;
+}
+
+.card{
+    position: absolute;
+    width: 30vw;
+    height: 100%;
+    text-align: justify;
+    border-radius: 8px;
+    padding-inline: 20px;
+    padding-top: 20px;
+    background-color: grey;
+    transition: 0.5s;
+    left: calc(50% - 15vw);
+    top: 0;
+}
+
+#next, #prev{
+    position: absolute;
+    top: 40%;
+    color: black;
+    background-color: transparent;
+    border: none;
+    font-size: 30px;
+    left: 50px;
+}
+
+#next{
+    left: unset;
+    right: 50px;
+}
