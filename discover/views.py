@@ -26,7 +26,8 @@ def rovers(request):
     thread = create_thread()
     request.session['thread_id'] = thread.id
     
-    referring_url = request.META.get('HTTP_REFERER', 'Unknown')
+    path_url = request.path
+    print(path_url)
     user = request.user
     entreprise = Entreprise.objects.get(user=user)
     
@@ -38,16 +39,15 @@ def rovers(request):
         persoPretty = 'Curiosity'
         sujetFR = 'entreprise'
         sujetEN = 'business'
-    elif 'projects' in referring_url and entreprise.curiosityPass:
+    if 'projects' in path_url and entreprise.curiosityPass:
         persoPretty = 'Perseverance'
         sujetFR = 'cahier des charges'
         sujetEN = 'specifications'
-    elif 'visions' in referring_url and entreprise.curiosityPass:
+    if 'visions' in path_url and entreprise.curiosityPass:
         persoPretty = 'Opportunity'
         sujetFR = 'avancement WEB et DATA'
         sujetEN = 'WEB and DATA advancement'
-    else :
-        print("erreur")
+
     
     return render(request, 'discover/rovers.html', context={'personality':persoPretty,'sujetFR':sujetFR,'sujetEN':sujetEN})
 
@@ -61,7 +61,7 @@ def histoire(request):
 
 def roversPersonality(request):
     
-    referring_url = request.META.get('HTTP_REFERER', 'Unknown')
+    path_url = request.path
     
     user = request.user
     entreprise = Entreprise.objects.get(user=user)
@@ -73,14 +73,16 @@ def roversPersonality(request):
     sujetFR = ''
     sujetEN = ''
     
+    contexteEntreprise = entreprise.companyInformation
+    
+    contexteEntrepriseSend = False
+    
     if entreprise.curiosityPass == False:
         personality = 'AI_CURIOSITY'
-    elif 'projects' in referring_url and entreprise.curiosityPass:
+    if 'projects' in path_url and entreprise.curiosityPass:
         personality = 'AI_PERSEVERANCE'
-    elif 'visions' in referring_url and entreprise.curiosityPass:
+    if 'visions' in path_url and entreprise.curiosityPass:
         personality = 'AI_OPPORTUNITY'
-    else :
-        print("erreur")
     
     
     thread_id = request.session.get('thread_id', None)
@@ -116,10 +118,13 @@ def roversPersonality(request):
             return HttpResponse(htmlPropre)
         
         elif personality == 'AI_OPPORTUNITY':
-            #Add_message
-            # Validation du webData Pass
-            # Ajout du réumer a la suite de company_information
-            # Ajout de note et de prix sans détails
+            if contexteEntrepriseSend == False:
+                Add_message(message=contexteEntreprise, thread_id=thread_id)
+                contexteEntrepriseSend = True
+                # Validation du webData Pass
+                # Ajout du réumer a la suite de company_information
+                # Ajout de note et de prix sans détails
+                    
         elif personality == 'AI_PERSEVERANCE':
             # redaction cahier des charges dans description
             creaCahier = CahierDesCharges(
