@@ -59,24 +59,21 @@ def histoire(request):
     return render(request, 'discover/histoire.html')
 
 
-def roversPersonality(request):
+def roversPersonality(request, project=None):
     
-    path_url = request.path
-    
+    # Récuperer les infos users et entreprise en BDD
     user = request.user
     entreprise = Entreprise.objects.get(user=user)
-    
-    personality = ''
-    
-    #Utiliser pour le front
-    persoPretty = ''
-    sujetFR = ''
-    sujetEN = ''
-    
     contexteEntreprise = entreprise.companyInformation
     
+    # personnalité de l'IA
+    personality = ''
+
+    # contexte envoyé à l'IA
     contexteEntrepriseSend = False
     
+    # Choix de la personnalité selon le parcours
+    path_url = request.path
     if entreprise.curiosityPass == False:
         personality = 'AI_CURIOSITY'
     if 'projects' in path_url and entreprise.curiosityPass:
@@ -85,27 +82,38 @@ def roversPersonality(request):
         personality = 'AI_OPPORTUNITY'
     
     
+    # execution thread et de l'assistant
     thread_id = request.session.get('thread_id', None)
     ASSISTANT_ID = os.environ.get(personality)
-    print(personality)
-    print(ASSISTANT_ID)
+    assistant = retrieve_assistant(ASSISTANT_ID)
     
+    # Réception message, traitement et renvoie au front
     if request.method == "POST":
+        
+        # Ajout du message pour l'assistant pour le contexte
+        if personality == 'AI_OPPORTUNITY' or personality == 'AI_PERSEVERANCE':
+            if contexteEntrepriseSend == False:
+                Add_message(message=contexteEntreprise, thread_id=thread_id)
+                contexteEntrepriseSend = True  
+            if personality == 'AI_PERSEVERANCE':
+                Add_message(message=project, thread_id=thread_id)
+                 
+
+        # Message de l'utilisateur
         message = request.POST.get('message')
-        
         print(message)
-        
-        assistant = retrieve_assistant(ASSISTANT_ID)
         Add_message(message=message, thread_id=thread_id)
         
+        
+        # Réponse OPEN AI
         responseHTML = run_assistant(assistant=assistant, thread_id=thread_id)
-     
         htmlPropre = responseHTML
         if responseHTML[0:7] == "```html":
             htmlPropre = responseHTML[7:-3]
-        
         print(htmlPropre)
         
+        
+        # Fin de conversation vers BDD   
         if personality == 'AI_CURIOSITY':
             patternDatabase = r"<database>(.*?)</database>"
             match = re.search(patternDatabase, htmlPropre, re.DOTALL)
@@ -118,15 +126,16 @@ def roversPersonality(request):
             return HttpResponse(htmlPropre)
         
         elif personality == 'AI_OPPORTUNITY':
-            if contexteEntrepriseSend == False:
-                Add_message(message=contexteEntreprise, thread_id=thread_id)
-                contexteEntrepriseSend = True
-                # Validation du webData Pass
-                # Ajout du réumer a la suite de company_information
-                # Ajout de note et de prix sans détails
+                patternDatabase = r"<database>(.*?)</database>"
+                match = re.search(patternDatabase, htmlPropre, re.DOTALL)
+                if match:
+                    # Enregistrer dans la BDD (nouvelle table) les infos notes par projets pour l'entreprise -> réception sous forme de table
+                    pass
+                    # On ajoute AI_SPIRIT dans la continuiter, on lui donne directement le résumer, elle travaille et ensuite l'utilisateur peut revler le gain
+                    personality = 'AI_SPIRIT'
                     
         elif personality == 'AI_PERSEVERANCE':
-            # redaction cahier des charges dans description
+            # redaction cahier des charges dans description avec une spération des taches pour faciliter l'arriver de spirit
             creaCahier = CahierDesCharges(
                 user = entreprise,
                 titre = '',
@@ -135,5 +144,9 @@ def roversPersonality(request):
             creaCahier.save()
             entreprise.nombreCDC += 1
             entreprise.save()
+            personality = 'AI_SPIRIT'
+            
+            
+        
             
     return render(request, 'discover/rovers.html')
