@@ -11,72 +11,114 @@
 </head>
 <body>
 
-    <div class="dataGallery">
-        <div class="card">
-            <h1>Slide 1</h1>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere magni magnam unde ipsam repudiandae explicabo expedita labore, sequi minus neque beatae voluptatum, quasi accusamus quia quis voluptas laborum ad! Ab totam doloribus, excepturi possimus rem vel quia fugit molestiae officiis!</p>
+    <a href="{% url 'entreprises' %}" id="exitFleche">
+        <button></button>
+    </a>
+    
+    <div id="topLabel">
+        <h1 id="dataLabel">DATA</h1>
+        <h1 id="webLabel">WEB</h1>
+    </div>
+
+    <div id="carousel">
+        <div class="dataGallery">
+            <div class="card">
+                <div>
+                    <h1>Collecte des données</h1>
+                    <p>Nous collectons des données depuis différentes sources pour les stocker</p>
+                </div>
+                <img src="/media/cardImages/axe-dynamic-gradient.png" alt="">
+            </div>
+            <div class="card">
+                <div>
+                    <h1>Création d’outils d’analyse</h1>
+                    <p>Nous réalisons un outils pour vous permettre d’analyser les données</p>
+                </div>
+                <img src="/media/cardImages/calculator-dynamic-gradient.png" alt="">
+            </div>
+            <div class="card">
+                <div>
+                    <h1>Tableaux de bord et visualisation</h1>
+                    <p>Des visualisations sur mesure pour vos donnés d’entreprise</p>
+                </div>
+                <img src="/media/cardImages/chart-dynamic-gradient.png" alt="">
+            </div>
+            <div class="card">
+                <div>
+                    <h1>Automatisation des rapports</h1>
+                    <p>Nous automatisations des processus en place dans votre entreprise.</p>
+                </div>
+                <img src="/media/cardImages/setting-dynamic-gradient.png" alt="">
+            </div>
+            <div class="card">
+                <div>
+                    <h1>Intégration des données</h1>
+                    <p>Nous collectons les données depuis différentes sources et les rendons cohérentes</p>
+                </div>
+                <img src="/media/cardImages/puzzle-dynamic-gradient.png" alt="">
+            </div>
+            <div class="card">
+                <div>
+                    <h1>Big Data<br> machine learning</h1>
+                    <p>Nous collectons les données depuis différentes sources et les rendons cohérentes</p>
+                </div>
+                <img src="/media/cardImages/bulb-dynamic-gradient.png" alt="">
+            </div>
+            <div class="card">
+                <div>
+                    <h1>Qualité des données</h1>
+                    <p>Analyse sur la qualité des données et la manière de les utiliser derrières</p>
+                </div>
+                <img src="/media/cardImages/sheild-dynamic-gradient.png" alt="">
+            </div>
+            <div class="card">
+                <div>
+                    <h1>Site e-commerce</h1>
+                    <p>Création d’un boutique en ligne sur mesure pour votre business</p>
+                </div>
+                <img class="gallery-card gallery-card-1" src="/media/cardImages/euro-dynamic-gradient.png" data-index="1">
+            </div>
+            <div class="card">
+                <div>
+                    <h1>Marketing digital</h1>
+                    <p>Pour vous un audit et une ptimisation du référencement, mail marketing, blog.</p>
+                </div>
+                <img class="gallery-card gallery-card-1" src="/media/cardImages/target-dynamic-gradient.png" data-index="2">
+            </div>
+            <div class="card">
+                <div>
+                    <h1>Design et UX/UI</h1>
+                    <p>Création ou refonte graphique avec des designs modernes et épurés.</p>
+                </div>
+                <img class="gallery-card gallery-card-1" src="/media/cardImages/paint-kit-dynamic-gradient.png" data-index="3">
+            </div>
+            <div class="card">
+                <div>
+                    <h1>Analyses et Reporting</h1>
+                    <p>Analyse de votre site web, de son utilisation au quotidien par les utilisateurs</p>
+                </div>
+                <img class="gallery-card gallery-card-1" src="/media/cardImages/zoom-dynamic-gradient.png" data-index="4">
+            </div>
+            <div class="card" id="autreStyle">
+                <div>
+                    <h1>Autre</h1>
+                    <p>Si vous souhaitez développer un autre axe, c’est par ici. </p>
+                </div>
+                <img src="/media/cardImages/tool-dynamic-gradient.png" alt="">
+            </div>
+            <button id="next">></button>
+            <button id="prev"><</button>
         </div>
-        <div class="card">
-            <h1>Slide 2</h1>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere magni magnam unde ipsam repudiandae explicabo expedita labore, sequi minus neque beatae voluptatum, quasi accusamus quia quis voluptas laborum ad! Ab totam doloribus, excepturi possimus rem vel quia fugit molestiae officiis!</p>
-        </div>
-        <div class="card">
-            <h1>Slide 3</h1>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere magni magnam unde ipsam repudiandae explicabo expedita labore, sequi minus neque beatae voluptatum, quasi accusamus quia quis voluptas laborum ad! Ab totam doloribus, excepturi possimus rem vel quia fugit molestiae officiis!</p>
-        </div>
-        <div class="card">
-            <h1>Slide 4</h1>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere magni magnam unde ipsam repudiandae explicabo expedita labore, sequi minus neque beatae voluptatum, quasi accusamus quia quis voluptas laborum ad! Ab totam doloribus, excepturi possimus rem vel quia fugit molestiae officiis!</p>
-        </div>
-        <div class="card">
-            <h1>Slide 5</h1>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere magni magnam unde ipsam repudiandae explicabo expedita labore, sequi minus neque beatae voluptatum, quasi accusamus quia quis voluptas laborum ad! Ab totam doloribus, excepturi possimus rem vel quia fugit molestiae officiis!</p>
-        </div>
-        <div class="card">
-            <h1>Slide 6</h1>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere magni magnam unde ipsam repudiandae explicabo expedita labore, sequi minus neque beatae voluptatum, quasi accusamus quia quis voluptas laborum ad! Ab totam doloribus, excepturi possimus rem vel quia fugit molestiae officiis!</p>
-        </div>
-        <div class="card">
-            <h1>Slide 7</h1>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere magni magnam unde ipsam repudiandae explicabo expedita labore, sequi minus neque beatae voluptatum, quasi accusamus quia quis voluptas laborum ad! Ab totam doloribus, excepturi possimus rem vel quia fugit molestiae officiis!</p>
-        </div>
-        <button id="next">></button>
-        <button id="prev"><</button>
+    </div>
+    
+    <div id="buttonSuivant">
+        {% if curiostyPassValidation %}
+            <a href="{% url 'projects-rovers-perseverance' %}">Commencez avec ce projet</a>
+        {% else %}
+            <a href="{% url 'projects-rovers-curiosity' %}">Commencez avec ce  projet</a>
+        {% endif %}
     </div>
 
     <script src="/static/js/classicJS/choixProjet.js"></script>
-    
-
-<!--
-    <div class="web-gallery">
-        <div class="card">
-            <h1>Site e-commerce</h1>
-            <img class="gallery-card gallery-card-1" src="/media/cardImages/euro-dynamic-gradient.png" data-index="1">
-        </div>
-        <div class="card">
-            <h1>Marketing Digital</h1>
-            <img class="gallery-card gallery-card-1" src="/media/cardImages/target-dynamic-gradient.png" data-index="2">
-        </div>
-        <div class="card">
-            <h1>Design et UX/UI</h1>
-            <img class="gallery-card gallery-card-1" src="/media/cardImages/paint-kit-dynamic-gradient.png" data-index="3">
-        </div>
-        <div class="card">
-            <h1>Analyse et Reporting</h1>
-            <img class="gallery-card gallery-card-1" src="/media/cardImages/zoom-dynamic-gradient.png" data-index="4">
-        </div>
-        <button>></button>
-        <button><</button>
-    </div>
-
-
-    {% if curiostyPassValidation %}
-        <a href="{% url 'projects-rovers-perseverance' %}">project rovers</a>
-    {% else %}
-        <a href="{% url 'projects-rovers-curiosity' %}">project rovers</a>
-    {% endif %}
-
-
--->
 </body>
 </html>
