@@ -74,23 +74,45 @@ $(document).ready(function() {
             
             success: function(response) {
 
-                if(response === "finCuriosity"){
+                var jsonData = JSON.parse(response);
 
-                    document.querySelector('#bigBottom').classList.add('fin')
-                    document.querySelector('#finButton').classList.add('fin')
+                // Nombre de questions
+                var nbQuestionText = jsonData.nbQuestion;
+                console.log(nbQuestionText)
+                const ArrayQuestionTotal = nbQuestionText.split('/').map(element => element.trim());
+                var pourcentageQuestion = (ArrayQuestionTotal[0]/ArrayQuestionTotal[1])*100;
+                $('#pourcentageComp').text(Math.ceil(pourcentageQuestion))
+
+
+                if(jsonData.status === "finProcess"){
 
                     typed.destroy();
 
-                    var question = $html.filter('h1#questionBot').text()
                     typed = new Typed('#WelcomeText', {
                         strings: ["Merci de la part de curiosity"],
                         typeSpeed: 25,
                         loop: false
                     });
                     
+                    document.querySelector('#bigBottom').classList.add('fin')
+                    document.querySelector('#finButton').classList.add('fin')
 
-                }else{
+                }else if(jsonData.status === "enCours"){
 
+                    
+                    // Place aux questions
+                    typed.destroy();
+                    document.querySelector('#WelcomeTextArea p').classList.add('questionned')
+                
+                    var question = jsonData.questions;
+                    typed = new Typed('#WelcomeText', {
+                        strings: [question],
+                        typeSpeed: 25,
+                        loop: false
+                    });
+
+
+                    // Animation de changement questions
                     document.querySelector('#cercleCheck').classList.add('submited2')
                     document.querySelector('#cercleCheck .checkIcon').classList.add('submited')
                     
@@ -101,38 +123,18 @@ $(document).ready(function() {
                         document.querySelector('#suggestions').classList.remove('noSuggestions')
                     },3000)
 
-                    var $html = $(response);
-
-                    var nbQuestionText = $html.filter('span#nbQuestion').text()
-                    const ArrayQuestionTotal = nbQuestionText.split('/').map(element => element.trim());
-                    var pourcentageQuestion = (ArrayQuestionTotal[0]/ArrayQuestionTotal[1])*100;
-                    $('#pourcentageComp').text(Math.ceil(pourcentageQuestion))
-
-                    // Place aux questions
-                    typed.destroy();
-                    document.querySelector('#WelcomeTextArea p').classList.add('questionned')
-                
-                    var question = $html.filter('h1#questionBot').text()
-                    typed = new Typed('#WelcomeText', {
-                        strings: [question],
-                        typeSpeed: 25,
-                        loop: false
-                    });
-
-                    // ajout des suggestions
-                    var sug = $html.filter('ul#suggestionsBot').children('li');
-
-
-                    var suggestions = sug.map(function(){
-                        return $(this).text();
-                    }).get();
-
+                    // Ajouter des suggestions
+                    
+                    var suggestions = jsonData.suggestionsBot;
                     const suggestionsButtons = document.getElementById('suggestions');
                     const buttons = suggestionsButtons.getElementsByTagName('button')
                     
                     for (var i=0; i < suggestions.length; i++){
                         $(buttons[i]).text(suggestions[i])
                     }
+
+                }else{
+                    console.log("erreur status")
                 }
             },
             error: function(xhr, errmsg, err) {
