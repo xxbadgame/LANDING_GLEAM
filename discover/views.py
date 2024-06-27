@@ -127,23 +127,9 @@ def roversPersonality(request, project=None):
             ListeCDC = respPyJSON["project"]
             for cdc in ListeCDC:
                 
-                if personality == 'AI_OPPORTUNITY':
-                    # 12 fois car un CDC
-                    personality = 'AI_SPIRIT'
-                    # Add message pour prix global par CDC
-                    # Add message concurrent pour meme CDC
+                
                     
-                    # réponse JSON sur les prix
                     
-                elif personality == 'AI_PERSEVERANCE':
-                    # 1 fois car un CDC
-                    personality = 'AI_SPIRIT'
-                    # Add message pour prix global par CDC
-                    # Add message concurrent pour meme CDC
-                    # Add message pour prix pour cette tache
-                    # Add message concurrent pour meme tache
-                    
-                    # réponse JSON sur les prix
                     
                 creaCDC= CahierDeCharge.objects.create(
                     user = entreprise,
@@ -152,9 +138,10 @@ def roversPersonality(request, project=None):
                     noteCohereneEntreprise = int(cdc["description"]),
                     justificationNote = cdc["justificationNote"],
                     tempsProjet = cdc["tempsProjet"],
-                    #prixGlobal = AI_SPIRIT
-                    #prixGlobaleConcurrents = AI_SPIRIT
+                    prixGlobal = responsePriceJSON["prixGlobal"],
+                    prixGlobaleConcurrents = responsePriceJSON["prixGlobaleConcurrents"]
                 )
+                
                 creaCDC.save()
                 entreprise.nombreCDC += 1
                 entreprise.save()
@@ -164,42 +151,54 @@ def roversPersonality(request, project=None):
                     if personality == 'AI_OPPORTUNITY':
                         creaTache = Tache.objects.create(
                             CahierDeCharge = cdc,
-                            poste = tache["poste"],
-                            descriptionTache = tache["description"],
+                            titreTache = tache["titreTache"],
+                            poste = tache["posteTache"],
+                            descriptionTache = tache["descriptionTache"],
                             tempsTache = tache["tempsTache"]
                         )
                     elif personality == 'AI_PERSEVERANCE':
                         creaTache = Tache.objects.create(
                             CahierDeCharge = cdc,
-                            poste = tache["poste"],
-                            descriptionTache = tache["description"],
-                            tempsTache = tache["tempsTache"]
-                            #prixTache =
-                            #prixTacheConcurrents =
+                            titreTache = tache["titreTache"],
+                            poste = tache["posteTache"],
+                            descriptionTache = tache["descriptionTache"],
+                            tempsTache = tache["tempsTache"],
+                            prixTache = responsePriceJSON["prixTache"],
+                            prixTacheConcurrents = responsePriceJSON["prixTacheConcurrents"]
                         )
                         
                     cdc.tache.add(creaTache)
+                    
+                # Pricing    
+                if personality == 'AI_OPPORTUNITY':
+                    # 12 fois car un CDC
+                    personality = 'AI_SPIRIT'
+                    # Add message pour prix global par CDC
+                    Add_message(message=f"Donne moi le prix Global pour ce cahier des charges {cdc}", thread_id=thread_id)
+                    # Add message concurrent pour meme CDC
+                    Add_message(message=f"Donne moi le prix Global des concurrents pour ce cahier des charges {cdc}", thread_id=thread_id)
+                    
+                    # réponse JSON sur les prix
+                    assistant = retrieve_assistant(ASSISTANT_ID)
+                    responsePriceJSON = run_assistant(assistant=assistant, thread_id=thread_id)    
+                
+                
+                elif personality == 'AI_PERSEVERANCE':
+                    # 1 fois car un CDC
+                    personality = 'AI_SPIRIT'
+                    # Add message pour prix global par CDC
+                    Add_message(message=f"Donne moi le prix Global pour ce cahier des charges {cdc}", thread_id=thread_id)
+                    # Add message concurrent pour meme CDC
+                    Add_message(message=f"Donne moi le prix Global des concurrents pour ce cahier des charges {cdc}", thread_id=thread_id)
+                    # Add message pour prix pour cette tache
+                    Add_message(message=f"Donne moi le prix Global pour ces taches {respPyJSON["project"][cdc]["taches"]}", thread_id=thread_id)
+                    # Add message concurrent pour meme tache
+                    Add_message(message=f"Donne moi le prix Global des concurrents pour ces taches {respPyJSON["project"][cdc]["taches"]}", thread_id=thread_id)
         
-            # Appelle SPIRIT personality
-            
-            
-                
-            # Envoie dans le thread les taches 
-            
-                
-                
-            
+                # réponse JSON sur les prix
+                assistant = retrieve_assistant(ASSISTANT_ID)
+                responsePriceJSON = run_assistant(assistant=assistant, thread_id=thread_id)  
+
         return HttpResponse(responseJSON)
-            
-        
-        #La fin
-        
-        """
-        patternDatabaseSpirit = r"<pricing>(.*?)</pricing>"  
-        match = re.search(patternDatabase, htmlPropre, re.DOTALL)
-        if match:
-            personality='AI_SPIRIT'
-            # Prends les taches et les prices et ensuite les sommes pour un globale
-        """
             
     return render(request, 'discover/rovers.html')
