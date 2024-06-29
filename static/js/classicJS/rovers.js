@@ -84,7 +84,7 @@ $(document).ready(function() {
                 $('#pourcentageComp').text(Math.ceil(pourcentageQuestion))
 
 
-                if(jsonData.status === "finProcess"){
+                if(jsonData.status === "finProcessCuriosity"){
 
                     typed.destroy();
 
@@ -95,7 +95,24 @@ $(document).ready(function() {
                     });
                     
                     document.querySelector('#bigBottom').classList.add('fin')
-                    document.querySelector('#finButton').classList.add('fin')
+                    document.querySelector('#finButtonCuriosity').classList.add('fin')
+                    document.querySelector('#cercleCheck .checkIcon').classList.add('fin')
+                    document.querySelector('#cercleCheck').classList.add('fin')         
+
+                }else if(jsonData.status === "finProcessAll"){
+
+                    typed.destroy();
+
+                    typed = new Typed('#WelcomeText', {
+                        strings: ["Découvrir votre économie avec GLEAM ?"],
+                        typeSpeed: 25,
+                        loop: false
+                    });
+
+                    document.querySelector('#bigBottom').classList.add('fin')
+                    document.querySelector('#finButtonAll').classList.add('fin')
+                    document.querySelector('#cercleCheck .checkIcon').classList.add('fin')
+                    document.querySelector('#cercleCheck').classList.add('fin') 
 
                 }else if(jsonData.status === "enCours"){
 

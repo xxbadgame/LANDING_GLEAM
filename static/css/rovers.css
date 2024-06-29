@@ -203,19 +203,40 @@
 }
 
 #bigBottom{
-    display: block;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 #bigBottom.fin{
     display: none;
 }
 
-#finButton{
+#finButtonCuriosity{
     display: none;
 }
 
-#finButton.fin{
+#finButtonCuriosity.fin{
+    display: block;
+}
+
+#finButtonAll{
+    display: none;
+}
+
+#finButtonAll.fin{
+    display: block;
+}
+
+#cercleCheck.fin{
+    animation: none;
+    border-color: #5cb85c;
+    transition: border 0.5s ease-out;
+    display: block;
+}
+
+#cercleCheck .checkIcon.fin{
     display: block;
 }
 

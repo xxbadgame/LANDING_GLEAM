@@ -208,28 +208,45 @@
     </div>
 
 
-    
     <div id="cercleCheck">
       <div class="checkIcon"></div>
       
-    </div>
-    
-
-    <div id="finButton">
-      <button><a href="{% url 'projects-rovers-perseverance' %}">Go to Perseverance</a></button>
     </div>
 
     <div id="bigBottom">
       <p id="nbQuestion">Pourcentage de compréhension : <span id="pourcentageComp" style="color: #4483FE; font-weight:400;">0</span>%</p>
       <div id="suggestions">
-        <div class="boxSugg">
-          <button id="suggest1">Bonjour, projet en vue !</button>
-          <button id="suggest2">Salut, j'ai un projet !</button>
-        </div>
-        <div class="boxSugg">
-          <button id="suggest3">Coucou, projet à discuter !</button>
-          <button id="suggest4">Hey, projet à partager !</button>
-        </div>
+        {% if personality == "Opportunity" %}
+          <div class="boxSugg">
+            <button id="suggest1">Opportunity</button>
+            <button id="suggest2">Opportunity</button>
+          </div>
+          <div class="boxSugg">
+            <button id="suggest3">Opportunity</button>
+            <button id="suggest4">Opportunity</button>
+          </div>
+        {% elif personality == "Perseverance" %}
+          <div class="boxSugg">
+            <button id="suggest1">Perseverance</button>
+            <button id="suggest2">Perseverance</button>
+          </div>
+          <div class="boxSugg">
+            <button id="suggest3">Perseverance</button>
+            <button id="suggest4">Perseverance</button>
+          </div>
+        {% else %}
+          <div class="boxSugg">
+            <button id="suggest1">Bonjour, projet en vue !</button>
+            <button id="suggest2">Salut, j'ai un projet !</button>
+          </div>
+          <div class="boxSugg">
+            <button id="suggest3">Coucou, projet à discuter !</button>
+            <button id="suggest4">Hey, projet à partager !</button>
+          </div>
+          {% endif %}
+
+
+
       </div>
 
       <div>
@@ -251,6 +268,24 @@
       </div>
       
     </div>
+
+
+    {% if "visions" in path_url %}
+      <div id="finButtonAll">
+        <button><a href="{% url 'visions-rovers-opportunity-pricing'%}">Montrer les prix</a></button>
+      </div>
+      <div id="finButtonCuriosity">
+        <button><a href="{% url 'visions-rovers-opportunity'%}">Go to Opportunity</a></button>
+      </div>
+    {% elif "projects" in path_url %}
+      <div id="finButtonAll">
+        <button><a href="{% url 'projects-rovers-perseverance-pricing'%}">Montrer le prix et la sythese du projet</a></button>
+      </div>
+      <div id="finButtonCuriosity">
+        <button><a href="{% url 'projects-rovers-perseverance'%}">Go to Perseverance</a></button>
+      </div>
+    {% endif %}
+
 
   </div>
 

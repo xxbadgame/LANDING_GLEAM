@@ -49,7 +49,7 @@ def rovers(request):
         sujetEN = 'WEB and DATA advancement'
 
     
-    return render(request, 'discover/rovers.html', context={'personality':persoPretty,'sujetFR':sujetFR,'sujetEN':sujetEN})
+    return render(request, 'discover/rovers.html', context={'personality':persoPretty,'sujetFR':sujetFR,'sujetEN':sujetEN, "path_url":path_url})
 
 
 def freelances(request):
@@ -74,15 +74,18 @@ def roversPersonality(request, project=None):
     
     # Choix de la personnalité selon le parcours
     
-    path_url = request.path
-    print("chemin : ",path_url)
+    path_url = request.META.get('HTTP_REFERER')
+    print("chemin :",path_url)
     if entreprise.curiosityPass == False:
         personality = 'AI_CURIOSITY'
-    if 'projects' in path_url and entreprise.curiosityPass:
+    elif 'Perseverance' in path_url and entreprise.curiosityPass == True:
         personality = 'AI_PERSEVERANCE'
-    if 'visions' in path_url and entreprise.curiosityPass:
+        print("AI_PERSEVERANCE")
+    elif 'Opportunity' in path_url and entreprise.curiosityPass == True:
         personality = 'AI_OPPORTUNITY'
-
+        print("AI_OPPORTUNITY")
+    else:
+        print("pas de personalité")
 
     print("personality : ", personality)
     
@@ -100,7 +103,8 @@ def roversPersonality(request, project=None):
                 Add_message(message=contexteEntreprise, thread_id=thread_id)
                 contexteEntrepriseSend = True  
             if personality == 'AI_PERSEVERANCE':
-                Add_message(message=project, thread_id=thread_id)
+                # Edit pour adapter le projet au carousel
+                Add_message(message="data collecte de donnée", thread_id=thread_id)
                  
 
         # Message de l'utilisateur
@@ -109,74 +113,88 @@ def roversPersonality(request, project=None):
         Add_message(message=message, thread_id=thread_id)
         
         # Réponse OPEN AI numero 1 avec base CDC
-        responseJSONpartial = run_assistant(assistant=assistant, thread_id=thread_id)        
-        respPyJSONfirst =  json.loads(responseJSONpartial)
-        print(respPyJSONfirst)
+        responseJSON = run_assistant(assistant=assistant, thread_id=thread_id)
+        respPyJSONfirst =  json.loads(responseJSON)
         status = respPyJSONfirst["status"]
+        print("JSON réponse : ",responseJSON)
+  
+         # Fin de process
+        if status == 'finProcessCuriosity':
+            
+            companyInformationResponse = respPyJSONfirst['companyInformation']
+            entreprise.companyInformation = companyInformationResponse
+            entreprise.curiosityPass = True
+            entreprise.save()
         
-        
-        if status == 'finProcess':
+        elif status == 'finProcessAll':
+            print("dedans")
+            ###### L'utilisation de SPIRIT plus tard ######
             # completion du CDC avec les prix et renvoie du json complet
-            personalitySwitch = 'AI_SPIRIT'
-            ASSISTANT_ID = os.environ.get(personalitySwitch)
-            assistant = retrieve_assistant(ASSISTANT_ID)
-            Add_message(message="Ajoute dans ce JSON de base les prix pour des freelance Junior pour GLEAM et senior pour la concurrence", thread_id=thread_id)
-            respFull = run_assistant(assistant=assistant, thread_id=thread_id)
-            respPyJSON =  json.loads(respFull)
-            print(respPyJSON)
-    
+            #personalitySwitch = 'AI_SPIRIT'
+            #ASSISTANT_ID = os.environ.get(personalitySwitch)
+            #assistant = retrieve_assistant(ASSISTANT_ID)
+            #Add_message(message=f"Ajoute dans ce JSON {responseJSON} de base les prix pour des freelance Junior pour GLEAM et senior pour la concurrence", thread_id=thread_id)
+            #responseJSON = run_assistant(assistant=assistant, thread_id=thread_id)
+            #respPyJSON =  json.loads(responseJSON)
+            #print(respPyJSON)
+            ##############################################
+
+            # Ajout des infos projets dans la BDD
+            for projet in respPyJSONfirst["projets"]:
+                cdc = projet['cahierDesCharges']
+                creaCDC= CahierDeCharge.objects.create(
+                    user = entreprise,
+                    titre = cdc["titre"],
+                    description = cdc["description"],
+                    noteCohereneEntreprise = int(cdc['noteSur100']),
+                    justificationNote = cdc["justificationNote"],
+                    tempsProjet = cdc["tempsProjet"],
+                    prixGlobal = int(cdc["prixGlobal"]),
+                    prixGlobalConcurrents = int(cdc["prixGlobalConcurrents"])
+                )
+                
+                creaCDC.save()
+                entreprise.nombreCDC += 1
+                entreprise.save()
+                
+                if personality == 'AI_PERSEVERANCE':
+                    for tache in cdc["taches"]:
+                        creaTache = Tache.objects.create(
+                            CahierDeCharge = creaCDC,
+                            titreTache = tache["titreTache"],
+                            poste = tache["posteTache"],
+                            descriptionTache = tache["descriptionTache"],
+                            tempsTache = tache["tempsTache"],
+                            prixTache = tache["prixTache"],
+                            prixTacheConcurrents = tache["prixTacheConcurrents"]
+                        )
+                        
+                        creaTache.save()
+            
+        return HttpResponse(responseJSON)
         
-            # Fin de process
-            if personality == 'AI_CURIOSITY':
-                companyInformationResponse = respPyJSON.get('companyInformation')
-                entreprise.companyInformation = companyInformationResponse
-                entreprise.curiosityPass = True
-                
-                
-            elif personality == 'AI_OPPORTUNITY' or personality == 'AI_PERSEVERANCE':
-                
-                # Ajout des infos projets dans la BDD
-                ListeCDC = respPyJSON["project"]
-                for cdc in ListeCDC:
-                    
-                    creaCDC= CahierDeCharge.objects.create(
-                        user = entreprise,
-                        titre = cdc["titre"],
-                        description = cdc["description"],
-                        noteCohereneEntreprise = int(cdc["description"]),
-                        justificationNote = cdc["justificationNote"],
-                        tempsProjet = cdc["tempsProjet"],
-                        prixGlobal = cdc["prixGlobal"],
-                        prixGlobaleConcurrents = cdc["prixGlobaleConcurrents"]
-                    )
-                    
-                    creaCDC.save()
-                    entreprise.nombreCDC += 1
-                    entreprise.save()
-                    
-                    ListeTaches = respPyJSON["project"][cdc]["taches"]
-                    for tache in ListeTaches:
-                        if personality == 'AI_OPPORTUNITY':
-                            creaTache = Tache.objects.create(
-                                CahierDeCharge = cdc,
-                                titreTache = tache["titreTache"],
-                                poste = tache["posteTache"],
-                                descriptionTache = tache["descriptionTache"],
-                                tempsTache = tache["tempsTache"]
-                            )
-                        elif personality == 'AI_PERSEVERANCE':
-                            creaTache = Tache.objects.create(
-                                CahierDeCharge = cdc,
-                                titreTache = tache["titreTache"],
-                                poste = tache["posteTache"],
-                                descriptionTache = tache["descriptionTache"],
-                                tempsTache = tache["tempsTache"],
-                                prixTache = tache["prixTache"],
-                                prixTacheConcurrents = tache["prixTacheConcurrents"]
-                            )
-                            
-                        cdc.tache.add(creaTache)
-            
-        return HttpResponse(respFull)
-            
     return render(request, 'discover/rovers.html')
+
+
+def pricingOpportunity(request):
+    user = request.user
+    entreprise = Entreprise.objects.get(user=user)
+    cahiers_des_charges = CahierDeCharge.objects.filter(user=entreprise)
+    
+    context = {
+        'entreprise': entreprise,
+        'cahiers_des_charges': cahiers_des_charges,
+    }
+    return render(request, 'discover/pricingOpportunity.html', context)
+
+
+def pricingPerseverance(request):
+    user = request.user
+    entreprise = Entreprise.objects.get(user=user)
+    cahiers_des_charges = CahierDeCharge.objects.filter(user=entreprise).prefetch_related('taches')
+    
+    context = {
+        'entreprise': entreprise,
+        'cahiers_des_charges': cahiers_des_charges,
+    }
+    return render(request, 'discover/pricingPerseverance.html', context)
