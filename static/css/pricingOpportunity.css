@@ -1,0 +1,31 @@
+.topTitle{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.topTitle h2{
+    margin: 0px;
+}
+
+.displayCDC{
+    display: flex;
+    justify-content: space-around;
+    margin-block: 100px;
+}
+
+.cards{
+    width: 30%;
+    margin-inline: 10px;
+}
+
+.topCards{
+    display: flex;
+    justify-content: space-between;
+}
+
+.bottomCards{
+    border: 1px solid black;
+    border-radius: 8px;
+}
+

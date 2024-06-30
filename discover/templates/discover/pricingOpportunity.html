@@ -3,11 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
 
+    <link rel="stylesheet" href="{% static 'css/pricingOpportunity.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="icon" type="image/png" href="/media/favicon.ico">
 </head>
 <body>
-    <h1>Pricing Opportunity</h1>
-    <p>{{entreprise}}</p>
-    <p>{{cahiers_des_charges}}</p>
+    <div class="topTitle">
+        <h1>Notre sélection pour votre entreprise</h1>
+        <h2>{{entreprise}}</h2>
+    </div>
+
+    <div class="displayCDC">
+        {% for cdc in cahiers_des_charges%}
+            <div class="cards">
+                <div class="topCards">
+                    <p>Recommandation</p>
+                    <p>{{cdc.noteCohereneEntreprise}}</p>
+                </div>
+                <div class="bottomCards">
+                    <p>{{cdc.titre}}</p>
+                    <p>{{cdc.description}}</p>
+                    <button>En savoir plus</button>
+                    <p>Temps estimé : {{cdc.tempsProjet}}</p>
+                    <p>{{cdc.prixGlobal}}</p>
+                    <p>{{cdc.prixGlobalConcurrents}}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 </body>
 </html>
