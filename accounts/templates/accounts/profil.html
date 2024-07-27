@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{% block cssStyle%}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/accounts/profil.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<div id="topProfil">
+    <p>{{ user.first_name|upper }} {{ user.last_name|upper}}</p>
+    {% if user.is_authenticated and user.role == "freelance" %}
+        <div id="profilUser">
+            <img src="/media/utilisateurBlack.png" alt="user">
+        </div>
+    {% elif user.is_authenticated and user.role == "entreprise" %}
+        <div id="profilUser">
+            <img src="/media/entrepriseBlack.png" alt="user">
+        </div>
+    {% endif %}
+    <p>Compte {{ user.role|upper }}</p>
+    <p>Email : {{ user.email }}</p>
+    <a href="{% url 'logout' %}"><button>deconnexion</button></a>
+
+</div>
+
+<div id="bottomProfil">
+    {% if user.role == "entreprise" %}
+        <h2>Vos projets</h2>
+
+        <div class="displayCDC">
+            {% for cdc in cahiers_des_charges%}
+                <div class="cards">
+                    <div class="topCards">
+                        <p>Recommandation</p>
+                        <p id="reco">{{cdc.noteCohereneEntreprise}}%</p>
+                    </div>
+                    
+    
+                    <div class="bottomCards">
+    
+                        <div id="front">
+                            <div id="textCard">
+                                <h2>{{cdc.titre}}</h2>
+                                <!--<p id="description">{{cdc.description}}</p>-->
+                            </div>
+                            <div id="savoirPlus">
+                                <button>En savoir plus</button>
+                            </div>
+                            <p id="tempsEstim">Temps estimé :<span style="color : #4483FE; font-size: 20px"> {{cdc.tempsProjet}}</span></p>
+                            <div id="prix">
+                                <div id="classique">
+                                    <h3>AGENCES CLASSIQUES</h3>
+                                    <p>{{cdc.prixGlobalConcurrents}} €</p>
+                                </div>
+                                <div id="gleam">
+                                    <h3>SOLUTION GLEAM</h3>
+                                    <p>{{cdc.prixGlobal}} €</p>
+                                </div>
+                            </div>
+                        </div>
+    
+    
+                        <div id="back">
+                            <div id="textCard">
+                                <h2>Description</h2>
+                                <p id="description">{{cdc.description}}</p>
+                            </div>
+                            <div id="textCard">
+                                <h2>Pour votre entreprise</h2>
+                                <p id="justif">{{cdc.justificationNote}}</p>
+                            </div>
+                            <div id="retourMain">
+                                <button>Retour</button>
+                            </div>
+                        </div>
+    
+    
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+
+        <h2>Nous contacter</h2>
+    {% else %}
+        <h2>Nous contacter</h2>
+        <p>juste ici<p>
+    {% endif %}
+</div>
+
+{% endblock %}
+
+{% block jsScript %}
+{% load static %}
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+<script src="{% static 'js/classicJS/pricing.js' %}"></script>
+
+{% endblock %}

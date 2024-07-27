@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block cssStyle%}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/accounts/inscription.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+
+<div id="inscriptionFreelance">
+
+    <div id="FreelanceForm">
+        <h1>Bonjour !</h1>
+        <h2>Se connecter</h2>
+        <h3>sur GLEAM</h3>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Se connecter</button>
+        </form>
+        <a href="{% url 'qui' %}" id="pasCompte">Vous n'avez pas de compte ? <span style="color:black;font-weight:1000; font-size:15px;">S'inscrire</span></a>
+    </div>
+    <div id="FreelanceIllustration">
+        <h1>GLEAM</h1>
+        <img src="/media/Illustration/connexion.gif">
+    </div>
+</div>
+{% endblock %}
+
+{% block jsScript %}
+    {% load static %}   
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="{% static 'js/anim/connexion.js' %}"></script>
+{% endblock %}

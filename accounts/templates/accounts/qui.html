@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block cssStyle%}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/accounts/qui.css' %}">
+{% endblock %}
+
+{% block content %}
+<div id="quiEstCe">
+    <div>
+        <h1>Qu'elle type de compte souhaitez-vous créer ?</h1>
+    </div>
+    <div id="choice">
+        <a href="{% url 'inscriptionEntreprises' %}">
+            <div class="carteQui" id="entrepQUI">
+                <h2>Entreprise</h2>
+                <img src="/media/Illustration/entreprise.png" alt="">
+                <h3>J'ai un projet à réaliser</h3>
+            </div>
+        </a>
+        <a href="{% url 'inscriptionFreelances' %}">
+            <div class="carteQui" id="freeQUI">
+                <h2>Freelance</h2>
+                <img src="/media/Illustration/freelance.png" alt="">
+                <h3>Je cherche des missions</h3>
+            </div>
+        </a>
+    </div>
+    <div id="dejaCompte">
+        <a href="{% url "connexion" %}">Vous avez déja un compte ?<span style="color : black; font-weight: 1000;"> Se connecter</a>
+    </div>
+</div>
+{% endblock %}
+
+{% block jsScript %}
+    {% load static %}
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="{% static 'js/anim/qui.js' %}"></script>
+{% endblock %}
