@@ -1,0 +1,125 @@
+#inscriptionFreelance{
+    display: flex;
+    justify-content: center;
+    margin-top: 5vh;
+}
+
+#FreelanceForm {
+    width: 35%;
+    margin-right: 10%;
+    border: 1px solid;
+    border-radius: 8px;
+    border-color: grey;
+    padding-block: 1%;
+    padding-inline: 2%;
+}
+
+#FreelanceForm h1{
+    font-weight: 200;
+    font-size: 50px;
+}
+
+#FreelanceForm h2{
+    color: #4483FE;
+    margin-bottom: 0;
+    font-size: 30px;
+}
+
+#FreelanceForm h3{
+    margin-top: 0;
+    font-weight: 200;
+    margin-bottom: 5vh;
+    font-size: 25px;
+}
+
+#FreelanceForm p {
+    display: flex;
+    flex-direction: column;
+}
+
+#FreelanceForm label {
+    font-weight: 600;
+}
+
+#FreelanceForm input {
+    background-color: none;
+    border: 1px solid;
+    border-color: grey;
+    border-radius: 5px;
+    height: 50px;
+    margin-block: 8px;
+    color: black;
+    font-family: Urbanist;
+    padding-inline: 20px;
+    font-size: 20px;
+}
+
+#FreelanceForm span{
+    color: grey;
+    font-size: 10px;
+}
+
+#FreelanceForm li{
+    color: grey;
+    font-size: 10px;
+}
+
+#FreelanceForm button{
+    width: 100%;
+    height: 8vh;
+    background-color: #4483FE;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-family: Urbanist;
+    font-size: 25px;
+}
+
+#FreelanceIllustration{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    text-align: center;
+    width: 35%;
+}
+
+#FreelanceIllustration h1{
+    font-size: 65px;
+    margin-bottom: 0;
+}
+
+#FreelanceIllustration h2 {
+    font-weight: 200;
+    font-size: 30px;
+    margin-top: 0;
+    margin-bottom: 5vh;
+}
+
+#FreelanceIllustration img{
+    max-width: 500px;
+    position: relative;
+    z-index: 2;
+}
+
+#FreelanceIllustration #slogantFree{
+    font-size: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+#FreelanceIllustration #endLogoFree{
+    width: 30%;
+}
+
+#pasCompte{
+    color: grey;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    margin-block :5% ;
+}
+
+#pasCompte span{
+    margin-left: 1%;
+}

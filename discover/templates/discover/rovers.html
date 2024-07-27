@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  {% load static %}
+
+  <link rel="stylesheet" href="{% static 'css/rovers.css' %}">
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  <link rel="icon" type="image/png" href="/media/favicon.ico">
+
+</head>
+
+<body>
+
+  <a href="{% url 'index' %}" id="exitFleche">
+    <button></button>
+  </a>
+
+  <div id='entreprise'>
+
+
+    <div id="WelcomeTextArea">
+      <p><span id="WelcomeText"></span></p>
+    </div>
+
+
+
+    <div>
+      <svg width="400" height="350" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg"
+        class="svgSiri" preserveAspectRatio="xMidYMid meet">
+
+        <!--Ombres-->
+        <g class="cercleOmbreSiri" opacity="0.7" filter="url(#filter0_f_231_273)">
+          <circle cx="199.763" cy="199.763" r="80" fill="#E60CFE" />
+          <circle cx="199.763" cy="199.763" r="80" fill="url(#paint0_radial_231_273)" fill-opacity="0.9" />
+          <circle cx="199.763" cy="199.763" r="80" fill="url(#paint1_radial_231_273)" fill-opacity="0.9" />
+          <circle cx="199.763" cy="199.763" r="80" fill="url(#paint2_radial_231_273)" fill-opacity="0.9" />
+          <circle cx="199.763" cy="199.763" r="80" fill="url(#paint3_radial_231_273)" fill-opacity="0.9" />
+        </g>
+
+        <!--Cercles-->
+        <g class="cercleSiri" filter="url(#filter1_d_231_273)">
+          <path
+            d="M293.822 183.911C293.822 235.777 251.777 277.822 199.911 277.822C148.045 277.822 106 235.777 106 183.911C106 132.045 148.045 90 199.911 90C251.777 90 293.822 132.045 293.822 183.911Z"
+            fill="#7030F3" />
+          <path
+            d="M293.822 183.911C293.822 235.777 251.777 277.822 199.911 277.822C148.045 277.822 106 235.777 106 183.911C106 132.045 148.045 90 199.911 90C251.777 90 293.822 132.045 293.822 183.911Z"
+            fill="url(#paint4_radial_231_273)" fill-opacity="0.9" />
+          <path
+            d="M293.822 183.911C293.822 235.777 251.777 277.822 199.911 277.822C148.045 277.822 106 235.777 106 183.911C106 132.045 148.045 90 199.911 90C251.777 90 293.822 132.045 293.822 183.911Z"
+            fill="url(#paint5_radial_231_273)" fill-opacity="0.85" />
+          <path
+            d="M293.822 183.911C293.822 235.777 251.777 277.822 199.911 277.822C148.045 277.822 106 235.777 106 183.911C106 132.045 148.045 90 199.911 90C251.777 90 293.822 132.045 293.822 183.911Z"
+            fill="url(#paint6_radial_231_273)" fill-opacity="0.8" />
+          <path
+            d="M293.822 183.911C293.822 235.777 251.777 277.822 199.911 277.822C148.045 277.822 106 235.777 106 183.911C106 132.045 148.045 90 199.911 90C251.777 90 293.822 132.045 293.822 183.911Z"
+            fill="url(#paint7_radial_231_273)" fill-opacity="0.88" />
+        </g>
+
+        <!--Pétales-->
+        <path class="rotate-fast"
+          d="M166 144.32C158.777 121.537 192.119 120.988 203.786 147.655C209.685 161.139 208.554 180.308 207.286 199.522C189.155 178.217 169.787 156.265 166 144.32Z"
+          fill="url(#paint8_linear_231_273)" />
+        <path class="rotate-medium"
+          d="M204.398 228.613C264.202 224.913 289.418 206.776 266.788 195.235C256.234 189.852 239.705 190.851 204.398 191.592C169.091 192.334 134.001 194.413 134 210.592C133.999 226.772 176.919 230.313 204.398 228.613Z"
+          fill="url(#paint9_radial_231_273)" />
+        <path class="rotate-slow"
+          d="M204.398 228.613C264.202 224.913 289.418 206.776 266.788 195.235C256.234 189.852 239.705 190.851 204.398 191.592C169.091 192.334 134.001 194.413 134 210.592C133.999 226.772 176.919 230.313 204.398 228.613Z"
+          fill="url(#paint10_linear_231_273)" />
+
+        <g class="rotate-fast" style="mix-blend-mode:hard-light">
+          <path
+            d="M183 204.371C183 173.708 186.796 145.105 188.707 131.564C189.493 125.992 192.434 124.406 194.395 127.712C197.735 132.738 204.462 144.948 211.253 156.654C218.31 168.818 228.486 182.266 223.816 222.143C220.277 252.357 203.011 250.99 203.011 250.99C203.011 250.99 183.001 250.159 183 204.371Z"
+            fill="url(#paint11_linear_231_273)" />
+        </g>
+
+        <path class="rotate-medium"
+          d="M165.517 214.054C165.366 214.93 165.192 215.757 164.92 216.539C161.377 226.733 166.706 229.945 174.725 230.607C183.183 231.305 197.493 231.756 214.524 214.862C224.172 205.291 233.294 189.108 239.21 174.69C244.599 161.556 247.369 149.923 244.663 145.401C243.985 144.269 242.853 143.236 241.22 142.613C230.437 140.533 216.811 148.415 196.382 170.786C175.953 193.156 172.793 198.153 165.517 214.054Z"
+          fill="url(#paint12_linear_231_273)" fill-opacity="0.78" />
+
+        <g class="rotate-slow" style="mix-blend-mode:color-dodge">
+          <path
+            d="M261.728 238.082C254.973 253.183 233.159 256.884 208.83 235.823C189.622 219.196 184.836 202.791 174.066 185.412C160.84 164.071 150.325 148.147 155.283 142.419C164.279 132.027 201.511 154.603 227.347 187.316C246.197 211.185 268.484 222.982 261.728 238.082Z"
+            fill="url(#paint13_radial_231_273)" fill-opacity="0.8" />
+        </g>
+
+        <path class="rotate-slow"
+          d="M131.871 194.749C127.295 180.433 140.779 165 171.617 165C195.963 165 209.72 173.38 228.424 178.884C251.393 185.644 269 190.306 269 197.153C269 209.576 227.863 216.174 188.625 209.102C159.996 203.942 136.448 209.064 131.871 194.749Z"
+          fill="url(#paint14_linear_231_273)" />
+
+        <g class="rotate-fast" filter="url(#filter2_df_231_273)">
+          <path
+            d="M223.305 194.133C223.305 207.193 212.718 217.78 199.658 217.78C186.598 217.78 176.011 207.193 176.011 194.133C176.011 189.111 177.576 184.456 180.245 180.627C182.945 176.753 184.777 176.25 181.692 172.677C177.683 168.035 174.16 162.277 193.804 159.175C212.129 156.279 221.345 155.194 216.404 172.103C215.276 175.964 216.523 177.079 218.871 180.345C221.661 184.226 223.305 188.988 223.305 194.133Z"
+            fill="white" />
+        </g>
+
+
+
+        <defs>
+          <filter id="filter0_f_231_273" x="0" y="0" width="399.526" height="399.526" filterUnits="userSpaceOnUse"
+            color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+            <feGaussianBlur stdDeviation="45" result="effect1_foregroundBlur_231_273" />
+          </filter>
+          <filter id="filter1_d_231_273" x="51" y="54" width="297.822" height="297.822" filterUnits="userSpaceOnUse"
+            color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+              result="hardAlpha" />
+            <feOffset dy="19" />
+            <feGaussianBlur stdDeviation="27.5" />
+            <feColorMatrix type="matrix" values="0 0 0 0 0.121569 0 0 0 0 0.145098 0 0 0 0 0.258824 0 0 0 0.45 0" />
+            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_231_273" />
+            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_231_273" result="shape" />
+          </filter>
+          <filter id="filter2_df_231_273" x="116.011" y="97.4805" width="187.293" height="200.299"
+            filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+              result="hardAlpha" />
+            <feOffset dx="10" dy="10" />
+            <feGaussianBlur stdDeviation="35" />
+            <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0" />
+            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_231_273" />
+            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_231_273" result="shape" />
+            <feGaussianBlur stdDeviation="12.5" result="effect2_foregroundBlur_231_273" />
+          </filter>
+          <radialGradient id="paint0_radial_231_273" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+            gradientTransform="translate(164.042 126.047) rotate(63.1327) scale(82.6364 98.0288)">
+            <stop stop-color="#7D7194" />
+            <stop offset="1" stop-color="#7D7194" stop-opacity="0" />
+          </radialGradient>
+          <radialGradient id="paint1_radial_231_273" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+            gradientTransform="translate(303.682 164.367) rotate(161.19) scale(109.781)">
+            <stop stop-color="#4A8F9F" />
+            <stop offset="1" stop-color="#4A8F9F" stop-opacity="0" />
+          </radialGradient>
+          <radialGradient id="paint2_radial_231_273" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+            gradientTransform="translate(236.135 303.682) rotate(-108.939) scale(70.0394)">
+            <stop stop-color="#5C4763" />
+            <stop offset="1" stop-color="#5C4763" stop-opacity="0" />
+          </radialGradient>
+          <radialGradient id="paint3_radial_231_273" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+            gradientTransform="translate(80.2578 239.383) rotate(-18.3418) scale(125.902 175.007)">
+            <stop stop-color="#3D3041" />
+            <stop offset="1" stop-color="#3D3041" stop-opacity="0" />
+          </radialGradient>
+          <radialGradient id="paint4_radial_231_273" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+            gradientTransform="translate(169.349 120.841) rotate(63.1327) scale(70.702 83.8714)">
+            <stop stop-color="#7D7194" />
+            <stop offset="1" stop-color="#7D7194" stop-opacity="0" />
+          </radialGradient>
+          <radialGradient id="paint5_radial_231_273" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+            gradientTransform="translate(288.821 153.627) rotate(161.19) scale(93.9266)">
+            <stop stop-color="#4A8F9F" />
+            <stop offset="1" stop-color="#4A8F9F" stop-opacity="0" />
+          </radialGradient>
+          <radialGradient id="paint6_radial_231_273" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+            gradientTransform="translate(231.03 272.822) rotate(-108.939) scale(59.9242)">
+            <stop stop-color="#5C4763" />
+            <stop offset="1" stop-color="#5C4763" stop-opacity="0" />
+          </radialGradient>
+          <radialGradient id="paint7_radial_231_273" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+            gradientTransform="translate(97.6647 217.809) rotate(-18.3418) scale(107.719 149.732)">
+            <stop stop-color="#3D3041" />
+            <stop offset="1" stop-color="#3D3041" stop-opacity="0" />
+          </radialGradient>
+          <linearGradient id="paint8_linear_231_273" x1="164.986" y1="143.209" x2="205.257" y2="136.541"
+            gradientUnits="userSpaceOnUse">
+            <stop stop-color="#E375A0" />
+            <stop offset="1" stop-color="#E375A0" stop-opacity="0" />
+          </linearGradient>
+          <radialGradient id="paint9_radial_231_273" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+            gradientTransform="translate(168.078 196.685) rotate(42.9084) scale(32.7984 59.659)">
+            <stop stop-color="#B850C1" />
+            <stop offset="1" stop-color="#DCADE0" stop-opacity="0" />
+          </radialGradient>
+          <linearGradient id="paint10_linear_231_273" x1="209.002" y1="190.965" x2="208.924" y2="198.399"
+            gradientUnits="userSpaceOnUse">
+            <stop stop-color="#B850C1" />
+            <stop offset="1" stop-color="#DCADE0" stop-opacity="0" />
+          </linearGradient>
+          <linearGradient id="paint11_linear_231_273" x1="187.225" y1="218.801" x2="210.64" y2="215.208"
+            gradientUnits="userSpaceOnUse">
+            <stop stop-color="#7EA1E4" />
+            <stop offset="1" stop-color="#70CBFF" stop-opacity="0" />
+          </linearGradient>
+          <linearGradient id="paint12_linear_231_273" x1="200.002" y1="176.426" x2="220.42" y2="196.646"
+            gradientUnits="userSpaceOnUse">
+            <stop stop-color="#85FAFE" stop-opacity="0" />
+            <stop offset="1" stop-color="#E60CFE" />
+          </linearGradient>
+          <radialGradient id="paint13_radial_231_273" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+            gradientTransform="translate(217.28 232.38) rotate(-60.7719) scale(31.6721 71.7657)">
+            <stop stop-color="#4483FE" />
+            <stop offset="1" stop-color="#8BECE9" stop-opacity="0" />
+          </radialGradient>
+          <linearGradient id="paint14_linear_231_273" x1="243.22" y1="204.374" x2="247.723" y2="185.233"
+            gradientUnits="userSpaceOnUse">
+            <stop stop-color="#7BE7F6" stop-opacity="0" />
+            <stop offset="0.75" stop-color="#7BE7F6" />
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+
+
+    <div id="cercleCheck">
+      <div class="checkIcon"></div>
+      
+    </div>
+
+    <div id="bigBottom">
+      <p id="nbQuestion">Pourcentage de compréhension : <span id="pourcentageComp" style="color: #4483FE; font-weight:400;">0</span>%</p>
+      <div id="suggestions">
+          <div class="boxSugg">
+            <button id="suggest1">Bonjour, projet en vue !</button>
+            <button id="suggest2">Salut, j'ai un projet !</button>
+          </div>
+          <div class="boxSugg">
+            <button id="suggest3">Coucou, projet à discuter !</button>
+            <button id="suggest4">Hey, projet à partager !</button>
+          </div>
+  
+      </div>
+
+      <div>
+          <form id="questionEntreprise" method="POST" data-url="{% url 'roversPersonality' %}"
+            data-thread-id="{{ thread_id }}" data-csrf-token="{{ csrf_token }}">
+            {% csrf_token %}
+
+
+            <div id="textAreaEntreprise">
+              <textarea name="message" id="chatInput" placeholder="Vous pouvez répondre ici..." required></textarea>
+            </div>
+
+
+            <div id="btnEntreprise">
+              <button type="submit"></button>
+            </div>
+          </form>
+
+      </div>
+      
+    </div>
+
+
+    <div id="finButtonCuriosity">
+      <button><a href="{% url 'index'%}">Retourner au menu</a></button>
+    </div>
+
+  </div>
+
+  <script>
+    var roversPersonalityUrl = "{% url 'roversPersonality' %}";
+    var threadId = "{{ thread_id }}";
+    var csrfToken = "{{ csrf_token }}";
+    var userFirstName = "<span style='color : #4483FE;'>{{ user.first_name}}</span>";
+    var personality = "{{ personality }}";
+    var sujetFR = "{{ sujetFR }}";
+    var sujetEN = "{{ sujetEN }}";
+  </script>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>
+  <script src="{% static 'js/rovers.js' %}"></script>
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+
+</body>
+
+</html>
