@@ -3,6 +3,7 @@ from django.urls import path, re_path
 from django.views.generic import RedirectView
 from django.conf import settings
 from django.conf.urls.static import static
+from django.views.static import serve
 from django.urls import path, include
 from discover.views import *
 from accounts.views import *
@@ -20,6 +21,9 @@ urlpatterns = [
     path('qui-etes-vous/', qui, name='qui'),
     path('profil/', profil, name='profil'),
     path('deconnexion/', deconnexion, name='logout'),
+
+    re_path(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}),
+
     
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
