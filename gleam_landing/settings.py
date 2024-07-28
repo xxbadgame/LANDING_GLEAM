@@ -10,7 +10,7 @@ SECRET_KEY = 'django-insecure-fbk!7t)=z)m-$8b=!+%(ke6=8tpw^+$6#hwt$#pg)ut-vdxd&n
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['gleamwork.fr']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
