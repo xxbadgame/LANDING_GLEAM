@@ -2,7 +2,7 @@ from openai import OpenAI
 import time
 import os
 
-client = OpenAI(api_key=os.environ.get('AI_API_KEY'))
+client = OpenAI(api_key=os.environ.get('OPENAI_API_KEY'))
 if not client:
     raise ValueError("The AI_API_KEY environment variable is not set.")
 
