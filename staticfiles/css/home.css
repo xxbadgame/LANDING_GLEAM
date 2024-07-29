@@ -2320,10 +2320,8 @@ a {
   justify-content: center;
   align-items: center;
   width: 50%;
-  height: 100vh;
   display: flex;
   position: absolute;
-  top: 0%;
   left: 50%;
 }
 
@@ -3670,7 +3668,9 @@ a {
 
 .lottie-schema {
   width: 500px;
+  height: 100%;
   position: absolute;
+  overflow: hidden;
 }
 
 .benefits-section {

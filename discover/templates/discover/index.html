@@ -37,7 +37,9 @@
             </div>
           </div>
           <div data-w-id="77845e33-6af5-3872-bb0b-aa97b5f93515" style="opacity:0" class="schema-div">
-            <div class="lottie-schema" data-w-id="061526de-890b-441f-f096-bcfaa1bc3e93" data-animation-type="lottie" data-src="images/homeanimation.lottie" data-loop="1" data-direction="1" data-autoplay="1" data-is-ix2-target="0" data-renderer="svg" data-default-duration="2.683333333333333" data-duration="0"></div>
+
+            <div class="lottie-schema" id="lottie-sch" data-w-id="061526de-890b-441f-f096-bcfaa1bc3e93" data-animation-type="lottie" data-src="https://cdn.prod.website-files.com/66914b36df8c1cd46ca8b4d2/669fcfc0bf19379c9ae6d1a4_homeAnimation.lottie" data-loop="1" data-direction="1" data-autoplay="1" data-is-ix2-target="0" data-renderer="svg" data-default-duration="2.683333333333333" data-duration="0"></div>
+
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" viewBox="0 0 1000 1000" fill="none" class="link-svg">
               <g filter="url(#filter0_d_134_2413)">
                 <rect x="609.981" y="64.0005" width="190.239" height="190.239" rx="30" fill="white"></rect>
@@ -662,9 +664,27 @@
     {% block jsScript %}
     {% load static %}
 
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js" type="text/javascript"></script>
+    <script>
+        var animation;
+
+        document.addEventListener('DOMContentLoaded', function() {
+          if (animation) {
+            animation.destroy();
+          }
+
+          animation = lottie.loadAnimation({
+            container: document.getElementById('lottie-schezfdezr'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'images/homeanimation.json'
+          });
+        });
+    </script>-->
     <script src="{% static 'js/jquery.js' %}" type="text/javascript"></script>
     <script src="{% static 'js/home.js' %}" type="text/javascript"></script>
-
+    
     {% endblock %}
 
 </body>
