@@ -2,6 +2,7 @@
 <html data-wf-page="66914b36df8c1cd46ca8b4d9" data-wf-site="66914b36df8c1cd46ca8b4d2" data-wf-status="1">
   <head>
     {% load static %}
+
     <meta charset="utf-8" />
     <title>GLEAM</title>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
@@ -24,8 +25,10 @@
         n.className += t + "js", ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch")
       }(window, document);
     </script>
-    <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon" />
-    <link href="images/app-icon.png" rel="apple-touch-icon" />
+    <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon" />
+    <link href="/images/app-icon.png" rel="apple-touch-icon" />
+    {% block cssStyle%}
+    {% endblock %}
   </head>
 
   <body class="body">
@@ -33,13 +36,15 @@
       <div class="nav-bar">
         <div class="left-nav">
           <div class="logo-div">
-            <img src="images/logogleamstar.svg" loading="lazy" width="41" alt="logo GLEAM multicolor" class="logo-nav-gleam" />
+            <a href="{% url 'index' %}">
+              <img src="/images/logogleamstar.svg" loading="lazy" width="41" alt="logo GLEAM multicolor" class="logo-nav-gleam" />
+            </a>
           </div>
           <div class="menu-nav">
             <a href="#projects" class="menu w-button">Projet</a>
             <a href="#howitswork" class="menu w-button">Services</a>
             <a href="#freelances" class="menu w-button">Freelances</a>
-            <a href="#" class="menu w-button">GLEAM IA</a>
+            <a href="{% url 'gleamIa' %}" class="menu w-button">GLEAM IA</a>
           </div>
         </div>
         <div class="right-nav">
@@ -56,10 +61,13 @@
             </div>
             <div class="bottom-hide">
               <a href="#" class="join-hide w-button">Nous rejoindre</a>
-              <a href="#" class="gleamia-hide w-button">GLEAM IA</a>
+              <a href="#" class="gleamia-hide w-button">GLEAM IA</a>
             </div>
           </div>
-          <a href="#rejoindre" class="join-top w-button">Nous rejoindre</a>
+          <div>
+            <a href="{% url 'connexion' %}" class="join-top1 w-button">Se connecter</a>
+            <a href="{% url 'qui' %}" class="join-top2 w-button">S'inscrire</a>
+          </div>
         </div>
       </div>
     </section>
@@ -71,7 +79,7 @@
     <section class="footer-section">
       <div class="left-footer">
         <div class="div-left-footer">
-          <img src="images/logogleamstar.svg" loading="lazy" width="107" alt="logo GLEAM multicolor" class="logo-footer-gleam" />
+          <img src="/images/logogleamstar.svg" loading="lazy" width="107" alt="logo GLEAM multicolor" class="logo-footer-gleam" />
           <h2 class="title-footer">Une idée ? <br />Venez discutez ! </h2>
           <div class="menu-all-footer">
             <a href="#" class="menu-footer w-button">Projet</a>

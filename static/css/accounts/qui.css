@@ -1,3 +1,7 @@
+.body{
+    background-color: white;
+}
+
 #quiEstCe{
     display: flex;
     flex-direction: column;
@@ -11,7 +15,7 @@
 }
 
 #dejaCompte{
-    margin: 2%;
+    margin: 5%;
 }
 
 #dejaCompte a{
@@ -32,18 +36,21 @@
 #choice .carteQui {
     width: 300px;
     height: 400px;
-    border: 1px solid;
-    border-color: grey;
-    border-radius: 5px;
+    box-shadow: 2px 4px 12px rgba(0, 0, 0, .14);
+    border: solid 1px;
+    border-color: white;
+    border-radius: 20px;
     margin-inline: 20px;
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    transition: all 0.3s;
 }
 
 #choice .carteQui:hover {
+    border: solid 1px;
     border-color: #4483FE;
 }
 
