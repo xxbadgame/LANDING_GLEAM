@@ -2369,6 +2369,10 @@ a {
   font-weight: 400;
 }
 
+.logs{
+  display: block;
+}
+
 .join-top1 {
   background-color: var(--white);
   color: var(--black);
@@ -4468,6 +4472,10 @@ a {
     display: none;
   }
 
+  .logs{
+    display: none;
+  }
+
   .join-top {
     background-color: var(--pink);
     justify-content: center;
@@ -4798,6 +4806,10 @@ a {
     height: 20vh;
   }
 
+  .logs{
+    display: none;
+  }
+
   .menu-hide {
     margin-bottom: 20vh;
   }
@@ -5040,6 +5052,10 @@ a {
 @media screen and (max-width: 479px) {
   .body {
     overflow: visible;
+  }
+
+  .logs{
+    display: none;
   }
 
   .footer-section {

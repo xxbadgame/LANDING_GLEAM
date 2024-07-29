@@ -2,15 +2,15 @@
 
 {% block cssStyle%}
 {% load static %}
-<link rel="stylesheet" href="{% static 'css/accounts/inscription.css' %}">
+<link rel="stylesheet" href="{% static 'css/accounts/logs.css' %}">
 {% endblock %}
 
 {% block content %}
 
-<div id="inscriptionFreelance">
-    <div id="FreelanceForm">
+<div id="log-container">
+    <div id="form-container">
         <h1>Bienvenue !</h1>
-        <h2>Inscription en tant que freelance</h2>
+        <h2>Inscription en tant qu'entreprise</h2>
         <h3>sur GLEAM</h3>
         <form method="POST">
             {% csrf_token %}
@@ -21,11 +21,7 @@
         <a href="{% url 'connexion' %}" id="pasCompte">Vous avez déja un compte ? <span style="color:black;font-weight:1000; font-size:15px;">Se connecter</span></a>
     </div>
     <div id="FreelanceIllustration">
-        <h1>GLEAM</h1>
-        <h2 id="sousTitreFree">Chaque <span style="color:#4483FE; font-weight:800;">freelance</span> est une touche essentiel à la réalisation de vos<span style="color:#4483FE; font-weight:800;"> chef d'oeuvre</span> digitaux.<h2>
-        <img src="/media/Illustration/entreprise.png">
-        <h2 id="slogantFree">Illuminez Votre Vision.</h2>
-        <img src="/media/Logo/blackLogo.png" id="endLogoFree">
+        <img src="/images/Collab-amico.svg" alt="collaboration pour l'entreprise">
     </div>
 </div>
 
