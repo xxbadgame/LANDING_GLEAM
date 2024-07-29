@@ -8,15 +8,16 @@
   {% load static %}
 
   <link rel="stylesheet" href="{% static 'css/rovers.css' %}">
-  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
   <link rel="icon" type="image/png" href="/media/favicon.ico">
+  <title>Entreprise IA</title>
 
 </head>
 
 <body>
 
   <a href="{% url 'index' %}" id="exitFleche">
-    <button></button>
+    <img src="/images/angle-gauche.svg" alt="exit arrow">
   </a>
 
   <div id='entreprise'>
@@ -233,11 +234,9 @@
             data-thread-id="{{ thread_id }}" data-csrf-token="{{ csrf_token }}">
             {% csrf_token %}
 
-
             <div id="textAreaEntreprise">
               <textarea name="message" id="chatInput" placeholder="Vous pouvez répondre ici..." required></textarea>
             </div>
-
 
             <div id="btnEntreprise">
               <button type="submit"></button>

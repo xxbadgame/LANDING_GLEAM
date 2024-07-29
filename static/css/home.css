@@ -224,7 +224,7 @@ body {
   background-color: #fff;
   min-height: 100%;
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: Urbanist,Arial, sans-serif;
   font-size: 14px;
   line-height: 20px;
 }
@@ -2369,8 +2369,9 @@ a {
   font-weight: 400;
 }
 
-.logs{
+.logs .image-profile{
   display: block;
+  width: 40px;
 }
 
 .join-top1 {

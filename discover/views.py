@@ -10,6 +10,9 @@ import json
 def index(request):
     return render(request, 'discover/index.html')
 
+def freelanceIa(request):
+    return render(request, 'discover/ia-freelances.html')
+
 def rovers(request):
     thread = create_thread()
     request.session['thread_id'] = thread.id

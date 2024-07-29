@@ -10,7 +10,8 @@ from accounts.views import *
 
 urlpatterns = [
     path('', index, name='index'),
-    path('gleamia/', rovers, name="gleamIa"),
+    path('gleam-ia/', rovers, name="gleamIa"),
+    path('freelance-ia/', freelanceIa, name="freelanceIa"),
     path('rovers-personality/', roversPersonality, name="roversPersonality"),
     
     #connexion et inscription

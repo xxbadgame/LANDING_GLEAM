@@ -41,10 +41,14 @@
             </a>
           </div>
           <div class="menu-nav">
-            <a href="#projects" class="menu w-button">Projet</a>
-            <a href="#howitswork" class="menu w-button">Services</a>
-            <a href="#freelances" class="menu w-button">Freelances</a>
-            <a href="{% url 'gleamIa' %}" class="menu w-button">GLEAM IA</a>
+            <a href="{% url 'index' %}#Our-gallery" class="menu w-button">Projet</a>
+            <a href="{% url 'index' %}#howitswork" class="menu w-button">Services</a>
+            <a href="{% url 'index' %}#freelances" class="menu w-button">Freelances</a>
+            {% if user.is_authenticated and user.role == "entreprise" %}
+              <a href="{% url 'gleamIa' %}" class="menu w-button">GLEAM IA</a>
+            {% else %}
+              <a href="{% url 'freelanceIa' %}" class="menu w-button">GLEAM IA</a>
+            {% endif %}
           </div>
         </div>
         <div class="right-nav">
@@ -64,11 +68,21 @@
               <a href="#" class="gleamia-hide w-button">GLEAM IA</a>
             </div>
           </div>
+          {% if not user.is_authenticated %}
           <div class="logs">
             <a href="{% url 'connexion' %}" class="join-top1 w-button">Se connecter</a>
             <a href="{% url 'qui' %}" class="join-top2 w-button">S'inscrire</a>
           </div>
-        </div>
+          {% elif user.is_authenticated and user.role == "freelance" %}
+          <div class="logs">
+            <a href="{% url 'profil' %}"><img src="/images/utilisateur-du-cercle.svg" alt="user profil" class="image-profile"></a>
+          </div>
+          {% elif user.is_authenticated and user.role == "entreprise" %}
+          <div class="logs">
+            <a href="{% url 'profil' %}"><img src="/images/entreprise.svg" alt="company profil" class="image-profile"></a>
+          </div>
+          {% endif %}
+        
       </div>
     </section>
 

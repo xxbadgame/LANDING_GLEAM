@@ -2,7 +2,7 @@ body{
     font-family: Urbanist;
 }
 
-#exitFleche button{
+#exitFleche img{
     background-image: url('/media/Fleche/leftBlack.png');
     background-color: rgba(255, 255, 255, 0);
     background-repeat: no-repeat;
@@ -12,25 +12,26 @@ body{
     border-radius: 100px;
     padding: 0;
     transition: 0.2s;
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     position: absolute;
     top: 3%;
     left: 1%;
     cursor: pointer;
 }
 
-#exitFleche button:hover{
-    width: 60px;
-    height: 60px;
+#exitFleche img:hover{
+    width: 40px;
+    height: 40px;
 }
 
 #entreprise{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 5vh;
+    justify-content: center;
     overflow: hidden;
+    height: 100vh;
 }
 
 #WelcomeTextArea p {
@@ -252,7 +253,7 @@ body{
 
 #questionEntreprise{
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: space-between;
     height: 100%;
     border: 1px solid rgba(128, 128, 128, 0.234);;
@@ -264,10 +265,6 @@ body{
     border: 1px solid #4483FE;
 }
 
-#textAreaEntreprise{
-    height: 100%;
-}
-
 #questionEntreprise textarea {
     color: black;
     font-family: 'Urbanist', sans-serif;
@@ -277,17 +274,12 @@ body{
     border-radius: 8px;
     font-size: 30px;
     font-weight: 200;
-    margin-top: 0;
     width: 50vw;
-    height: 7vh;
     padding-inline: 15px;
-    padding-block: 13px;
     resize: none;
     box-sizing: border-box;
     overflow: hidden;
-    margin-right: 10px;
-    display:flex;
-    align-items: center;
+    padding-top: 22px;
 }
 
 #btnEntreprise{
