@@ -1,69 +1,143 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head>
+<html data-wf-page="66914b36df8c1cd46ca8b4d9" data-wf-site="66914b36df8c1cd46ca8b4d2" data-wf-status="1">
+  <head>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    
     <meta charset="utf-8" />
     <title>GLEAM</title>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="Webflow" name="generator" />
+    <link href="{% static 'css/home.css' %}" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous" />
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
-    <script
-        type="text/javascript">WebFont.load({ google: { families: ["Lato:100,100italic,300,300italic,400,400italic,700,700italic,900,900italic", "Montserrat:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic", "Open Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic", "Urbanist:200,regular,900"] } });</script>
-    <script
-        type="text/javascript">!function (o, c) { var n = c.documentElement, t = " w-mod-"; n.className += t + "js", ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch") }(window, document);</script>
-    <link href="https://cdn.prod.website-files.com/img/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <link href="https://cdn.prod.website-files.com/img/webclip.png" rel="apple-touch-icon" />
+    <script type="text/javascript">
+      WebFont.load({
+        google: {
+          families: ["Urbanist:200,regular,900"]
+        }
+      });
+    </script>
+    <script type="text/javascript">
+      ! function(o, c) {
+        var n = c.documentElement,
+          t = " w-mod-";
+        n.className += t + "js", ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch")
+      }(window, document);
+    </script>
+    <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon" />
+    <link href="images/app-icon.png" rel="apple-touch-icon" />
+  </head>
 
-    {% block cssStyle %}
-    {% endblock %}
-
-</head>
-
-<body>
-    
-    <div class="nav-bar">
-        <div class="div-block-229">
-            <div class="div-block-228">
-                <div class="div-block-231"><img
-                        src="https://cdn.prod.website-files.com/66914b36df8c1cd46ca8b4d2/669625eb0bd7b3ebf0c95002_logoGleamStar.svg"
-                        loading="lazy" width="41" alt="logo GLEAM multicolor" class="image-6" /></div>
-                <div class="div-block-230"><a href="#" class="menu w-button">Projet</a><a href="#"
-                        class="menu w-button">Services</a><a href="#" class="menu w-button">Freelances</a><a href="#"
-                        class="menu w-button">GLEAM IA</a></div>
-            </div>
-            <div class="div-block-232">
-                <div data-w-id="c1f6583c-9ca8-8772-33f0-08b4feb06f29" class="menu-button">
-                    <div data-w-id="c1f6583c-9ca8-8772-33f0-08b4feb06f2a" class="burger-line"></div>
-                    <div data-w-id="c1f6583c-9ca8-8772-33f0-08b4feb06f2b" class="burger-line"></div>
-                    <div data-w-id="c1f6583c-9ca8-8772-33f0-08b4feb06f2c" class="burger-line"></div>
-                </div>
-                <div data-w-id="c1f6583c-9ca8-8772-33f0-08b4feb06f2d"
-                    style="display:none;-webkit-transform:translate3d(0, -20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, -20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, -20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, -20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0"
-                    class="full-screen-menu">
-                    <div class="div-block-239"><a data-w-id="c1f6583c-9ca8-8772-33f0-08b4feb06f2e" style="opacity:0"
-                            href="http://prettynicewebsites.com" target="_blank" class="nav-link">PROJETS</a><a href="#"
-                            data-w-id="c1f6583c-9ca8-8772-33f0-08b4feb06f30" style="opacity:0"
-                            class="nav-link">SERVICES</a><a data-w-id="c1f6583c-9ca8-8772-33f0-08b4feb06f32"
-                            style="opacity:0" href="#" class="nav-link">FREELANCES</a></div>
-                    <div class="div-block-238"><a href="#" class="button-8 w-button">Nous rejoindre</a><a href="#"
-                            class="button-9 w-button">GLEAM IA</a></div>
-                </div><a href="#rejoindre" class="button-7 w-button">Nous rejoindre</a>
-            </div>
+  <body class="body">
+    <section id="navbar" class="nav-bar-section">
+      <div class="nav-bar">
+        <div class="left-nav">
+          <div class="logo-div">
+            <img src="images/logogleamstar.svg" loading="lazy" width="41" alt="logo GLEAM multicolor" class="logo-nav-gleam" />
+          </div>
+          <div class="menu-nav">
+            <a href="#projects" class="menu w-button">Projet</a>
+            <a href="#howitswork" class="menu w-button">Services</a>
+            <a href="#freelances" class="menu w-button">Freelances</a>
+            <a href="#" class="menu w-button">GLEAM IA</a>
+          </div>
         </div>
-    </div>
+        <div class="right-nav">
+          <div data-w-id="c1f6583c-9ca8-8772-33f0-08b4feb06f29" class="menu-button">
+            <div data-w-id="c1f6583c-9ca8-8772-33f0-08b4feb06f2a" class="burger-line"></div>
+            <div data-w-id="c1f6583c-9ca8-8772-33f0-08b4feb06f2b" class="burger-line"></div>
+            <div data-w-id="c1f6583c-9ca8-8772-33f0-08b4feb06f2c" class="burger-line"></div>
+          </div>
+          <div data-w-id="c1f6583c-9ca8-8772-33f0-08b4feb06f2d" style="display:none;-webkit-transform:translate3d(0, -20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, -20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, -20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, -20PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="full-screen-menu">
+            <div class="menu-hide">
+              <a data-w-id="c1f6583c-9ca8-8772-33f0-08b4feb06f2e" style="opacity:0" href="http://prettynicewebsites.com" target="_blank" class="menu-hide-element">PROJETS</a>
+              <a href="#" data-w-id="c1f6583c-9ca8-8772-33f0-08b4feb06f30" style="opacity:0" class="menu-hide-element">SERVICES</a>
+              <a data-w-id="c1f6583c-9ca8-8772-33f0-08b4feb06f32" style="opacity:0" href="#" class="menu-hide-element">FREELANCES</a>
+            </div>
+            <div class="bottom-hide">
+              <a href="#" class="join-hide w-button">Nous rejoindre</a>
+              <a href="#" class="gleamia-hide w-button">GLEAM IA</a>
+            </div>
+          </div>
+          <a href="#rejoindre" class="join-top w-button">Nous rejoindre</a>
+        </div>
+      </div>
+    </section>
+
     {% block content %}
     
-    {% endblock %}
+    {% endblock %} 
+
+    <section class="footer-section">
+      <div class="left-footer">
+        <div class="div-left-footer">
+          <img src="images/logogleamstar.svg" loading="lazy" width="107" alt="logo GLEAM multicolor" class="logo-footer-gleam" />
+          <h2 class="title-footer">Une idée ? <br />Venez discutez ! </h2>
+          <div class="menu-all-footer">
+            <a href="#" class="menu-footer w-button">Projet</a>
+            <a href="#" class="menu-footer w-button">Services</a>
+            <a href="#" class="menu-footer w-button">Freelances</a>
+            <a href="#" class="menu-footer w-button">GLEAM IA</a>
+          </div>
+        </div>
+      </div>
+      <div class="right-footer">
+        <div class="line-right-footer">
+          <div class="join-block">
+            <div class="left-indication">
+              <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 100 100" fill="none" class="calendar-svg">
+                <path d="M81.25 8.33333H75V2.08333C75 0.933333 74.0667 0 72.9167 0C71.7667 0 70.8333 0.933333 70.8333 2.08333V8.33333H29.1667V2.08333C29.1667 0.933333 28.2333 0 27.0833 0C25.9333 0 25 0.933333 25 2.08333V8.33333H18.75C8.4125 8.33333 0 16.7458 0 27.0833V81.25C0 91.5875 8.4125 100 18.75 100H81.25C91.5875 100 100 91.5875 100 81.25V27.0833C100 16.7458 91.5875 8.33333 81.25 8.33333ZM18.75 12.5H81.25C89.2917 12.5 95.8333 19.0417 95.8333 27.0833V33.3333H4.16667V27.0833C4.16667 19.0417 10.7083 12.5 18.75 12.5ZM81.25 95.8333H18.75C10.7083 95.8333 4.16667 89.2917 4.16667 81.25V37.5H95.8333V81.25C95.8333 89.2917 89.2917 95.8333 81.25 95.8333ZM79.1667 56.25C79.1667 57.4 78.2333 58.3333 77.0833 58.3333H22.9167C21.7667 58.3333 20.8333 57.4 20.8333 56.25C20.8333 55.1 21.7667 54.1667 22.9167 54.1667H77.0833C78.2333 54.1667 79.1667 55.1 79.1667 56.25ZM50 77.0833C50 78.2333 49.0667 79.1667 47.9167 79.1667H22.9167C21.7667 79.1667 20.8333 78.2333 20.8333 77.0833C20.8333 75.9333 21.7667 75 22.9167 75H47.9167C49.0667 75 50 75.9333 50 77.0833Z" fill="currentColor"></path>
+              </svg>
+              <div class="meet-title">Nous rencontrez</div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 100 100" fill="none" class="arrow-to-go">
+              <path d="M50 0C22.4292 0 0 22.4292 0 50C0 77.5708 22.4292 100 50 100C77.5708 100 100 77.5708 100 50C100 22.4292 77.5708 0 50 0ZM50 95.8333C24.7292 95.8333 4.16667 75.2708 4.16667 50C4.16667 24.7292 24.7292 4.16667 50 4.16667C75.2708 4.16667 95.8333 24.7292 95.8333 50C95.8333 75.2708 75.2708 95.8333 50 95.8333ZM73.0083 45.1917C75.6583 47.8417 75.6583 52.1542 73.0083 54.8083L52.9958 74.8208L50.05 71.875L69.8417 52.0833H25V47.9167H69.8417L50.05 28.125L52.9958 25.1792L73.0083 45.1917Z" fill="currentColor"></path>
+            </svg>
+          </div>
+          <div class="message-block">
+            <div class="left-indication">
+              <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 100 100" fill="none" class="plane-svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M7.42927 0.249351C3.77055 1.13646 0.79091 4.29196 0.126684 7.98325C-0.118052 9.34343 -0.000571238 11.2187 0.413251 12.5583C0.548911 12.9974 5.06245 21.6012 10.4431 31.6777L20.2263 49.999L10.5391 68.5105C5.21121 78.692 0.734222 87.4619 0.590352 87.9992C0.0385239 90.0603 0.362232 92.6949 1.42503 94.7915C2.17292 96.2666 4.25005 98.26 5.79744 98.9873C7.99967 100.022 9.9558 100.251 12.1576 99.7322C12.8068 99.5792 16.5013 97.9654 20.3676 96.1458C38.351 87.6829 90.5988 63.0086 91.9915 62.3212C92.8503 61.8974 93.941 61.2835 94.4154 60.9571C96.5119 59.5153 98.7269 56.3662 99.5154 53.7067C100.416 50.6672 100.049 47.0744 98.5157 43.941C97.7714 42.4192 97.3276 41.8086 96.0277 40.5166C94.9637 39.4593 93.9977 38.7125 93.0774 38.2363C89.0758 36.1659 12.8809 0.514312 11.9262 0.265764C10.5886 -0.0826326 8.82438 -0.0888853 7.42927 0.249351ZM13.4022 5.33286C14.649 5.90538 31.3706 13.7593 50.5614 22.7861C69.7522 31.813 86.6414 39.7544 88.0928 40.4336C91.2921 41.9309 92.5371 42.7168 93.5733 43.8935C94.3683 44.7965 95.5209 46.949 95.5209 47.5313C95.5209 47.8193 92.5097 47.8416 59.6252 47.7964L23.7296 47.747L14.002 29.5139C7.35675 17.0584 4.235 11.0182 4.15016 10.4521C3.76117 7.86035 5.6391 5.08021 8.27451 4.3457C9.70695 3.9465 10.871 4.17062 13.4022 5.33286ZM95.5207 52.4854C95.5205 53.1558 94.3505 55.2837 93.458 56.2379C92.9587 56.7713 92.1411 57.4677 91.641 57.7854C90.9278 58.2386 38.9863 82.8395 15.7757 93.7174C11.6232 95.6636 11.3165 95.7751 10.0936 95.7865C7.14505 95.8134 4.70571 93.5333 4.48599 90.5451C4.4076 89.479 4.4725 89.2185 5.16859 87.8038C5.71514 86.6928 20.4184 58.5406 23.6145 52.4854C23.7853 52.1616 25.7018 52.1435 59.6579 52.1435C93.6828 52.1435 95.5209 52.1611 95.5207 52.4854Z" fill="currentColor"></path>
+              </svg>
+              <div class="message-title">Envoyez un message</div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 100 100" fill="none" class="arrow-to-go">
+              <path d="M50 0C22.4292 0 0 22.4292 0 50C0 77.5708 22.4292 100 50 100C77.5708 100 100 77.5708 100 50C100 22.4292 77.5708 0 50 0ZM50 95.8333C24.7292 95.8333 4.16667 75.2708 4.16667 50C4.16667 24.7292 24.7292 4.16667 50 4.16667C75.2708 4.16667 95.8333 24.7292 95.8333 50C95.8333 75.2708 75.2708 95.8333 50 95.8333ZM73.0083 45.1917C75.6583 47.8417 75.6583 52.1542 73.0083 54.8083L52.9958 74.8208L50.05 71.875L69.8417 52.0833H25V47.9167H69.8417L50.05 28.125L52.9958 25.1792L73.0083 45.1917Z" fill="currentColor"></path>
+            </svg>
+          </div>
+        </div>
+        <div class="line-right-footer">
+          <div class="phone-block">
+            <div class="left-indication">
+              <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 100 100" fill="none" class="phone-svg">
+                <path d="M92.7083 7.32368L88.0417 3.23992C83.7917 -1.01052 76.5833 -1.21888 72 3.44828L64.2084 13.6577C59.8334 18.0331 59.8334 25.1589 64.2084 29.4927L70.4167 35.8683C63.6667 51.7033 51.2084 64.2046 35.875 70.4553L29.5001 64.2463C27.3751 62.1211 24.5834 60.9543 21.5834 60.9543C18.5834 60.9543 15.7917 62.1211 13.8751 64.0796L3.29174 72.2471C-1.08326 76.6226 -1.08326 83.7483 3.20841 87.9987L7.4584 92.8743C12.0417 97.4581 18.2084 100 24.9167 100C57.2084 100 100 57.1622 100 24.9088C100 18.2415 97.4583 12.0325 92.7917 7.36535L92.7083 7.32368ZM24.8334 95.7912C19.2501 95.7912 14.1251 93.7077 10.4167 89.999L6.16674 85.0818C3.41674 82.3315 3.41674 77.8727 5.9584 75.2891L16.5417 67.1216C17.8751 65.7881 19.6251 65.038 21.5417 65.038C23.4584 65.038 25.2084 65.7881 26.5417 67.1216L33.9167 74.3307C34.5 74.9141 35.3334 75.0807 36.125 74.789C53.5 68.1633 67.625 54.0369 74.8333 36.1183C75.125 35.3683 74.9584 34.4932 74.375 33.8681L67.1667 26.4923C64.4167 23.7421 64.4167 19.2833 67.3334 16.3246L75.125 6.11522C77.875 3.36493 82.3333 3.36493 85.2083 6.19856L89.875 10.2823C93.6667 14.0744 95.75 19.1999 95.75 24.7838C95.75 54.6203 54.6667 95.7079 24.8334 95.7079V95.7912Z" fill="currentColor"></path>
+              </svg>
+              <div class="phone-title">Discussion téléphonique</div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 100 100" fill="none" class="arrow-to-go">
+              <path d="M50 0C22.4292 0 0 22.4292 0 50C0 77.5708 22.4292 100 50 100C77.5708 100 100 77.5708 100 50C100 22.4292 77.5708 0 50 0ZM50 95.8333C24.7292 95.8333 4.16667 75.2708 4.16667 50C4.16667 24.7292 24.7292 4.16667 50 4.16667C75.2708 4.16667 95.8333 24.7292 95.8333 50C95.8333 75.2708 75.2708 95.8333 50 95.8333ZM73.0083 45.1917C75.6583 47.8417 75.6583 52.1542 73.0083 54.8083L52.9958 74.8208L50.05 71.875L69.8417 52.0833H25V47.9167H69.8417L50.05 28.125L52.9958 25.1792L73.0083 45.1917Z" fill="currentColor"></path>
+            </svg>
+          </div>
+          <div class="mail-block">
+            <div class="left-indication">
+              <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 100 100" fill="none" class="mail-svg">
+                <path d="M62.5 18.75C62.5 17.6 63.4333 16.6667 64.5833 16.6667H79.1667V2.08333C79.1667 0.933333 80.1 0 81.25 0C82.4 0 83.3333 0.933333 83.3333 2.08333V16.6667H97.9167C99.0667 16.6667 100 17.6 100 18.75C100 19.9 99.0667 20.8333 97.9167 20.8333H83.3333V35.4167C83.3333 36.5667 82.4 37.5 81.25 37.5C80.1 37.5 79.1667 36.5667 79.1667 35.4167V20.8333H64.5833C63.4333 20.8333 62.5 19.9 62.5 18.75ZM97.9167 29.1667C96.7667 29.1667 95.8333 30.1 95.8333 31.25V81.25C95.8333 89.2917 89.2917 95.8333 81.25 95.8333H18.75C10.7083 95.8333 4.16667 89.2917 4.16667 81.25V32.7625L36.7417 65.3417C40.3958 68.9958 45.2 70.825 50.0042 70.825C54.8083 70.825 59.6 69 63.25 65.3542L79.4042 49.4C80.2208 48.5917 80.2292 47.2708 79.4208 46.45C78.6083 45.6375 77.2917 45.625 76.4708 46.4333L60.3083 62.3958C54.6208 68.0792 45.3667 68.0792 39.6833 62.3958L4.6875 27.3917C6.38333 21.2167 12.0458 16.6667 18.75 16.6667H52.0833C53.2333 16.6667 54.1667 15.7333 54.1667 14.5833C54.1667 13.4333 53.2333 12.5 52.0833 12.5H18.75C8.4125 12.5 0 20.9125 0 31.25V81.25C0 91.5875 8.4125 100 18.75 100H81.25C91.5875 100 100 91.5875 100 81.25V31.25C100 30.1 99.0667 29.1667 97.9167 29.1667Z" fill="currentColor"></path>
+              </svg>
+              <div class="mail-title">Envoyez un e-mail</div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 100 100" fill="none" class="arrow-to-go">
+              <path d="M50 0C22.4292 0 0 22.4292 0 50C0 77.5708 22.4292 100 50 100C77.5708 100 100 77.5708 100 50C100 22.4292 77.5708 0 50 0ZM50 95.8333C24.7292 95.8333 4.16667 75.2708 4.16667 50C4.16667 24.7292 24.7292 4.16667 50 4.16667C75.2708 4.16667 95.8333 24.7292 95.8333 50C95.8333 75.2708 75.2708 95.8333 50 95.8333ZM73.0083 45.1917C75.6583 47.8417 75.6583 52.1542 73.0083 54.8083L52.9958 74.8208L50.05 71.875L69.8417 52.0833H25V47.9167H69.8417L50.05 28.125L52.9958 25.1792L73.0083 45.1917Z" fill="currentColor"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
 
     {% block jsScript%}
+    
     {% endblock %}
-    
-    <script src="{% static 'js/base.js' %}"></script>
-    
-
-</body>
+    <script src="{% static 'js/home.js' %}"></script>
+  </body>
 </html>
