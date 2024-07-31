@@ -1,4 +1,6 @@
 from pathlib import Path
+import django_heroku
+import dj_database_url
 from decouple import config
 import os
 
@@ -33,6 +35,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.whiteNoiseMiddleware'
 ]
 
 ROOT_URLCONF = 'gleam_landing.urls'
@@ -110,6 +113,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 # Default primary key field type
@@ -121,3 +127,5 @@ MEDIA_URL = '/images/'
 MEDIA_ROOT = BASE_DIR / 'images/'
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
+
+django_heroku.settings(locals())

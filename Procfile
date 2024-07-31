@@ -1,0 +1,1 @@
+web: gunicorn gleam_landing.wsgi
