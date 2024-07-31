@@ -6,7 +6,7 @@ var typed
 
 document.addEventListener('DOMContentLoaded', function() {
     typed = new Typed('#WelcomeText', {
-      strings: ['Bonjour '+ userFirstName +' !',' Je m\'appelle <span style="color:#FE981E;">Curiosity</span>.', 'Parlons de votre <span style="color:#E60CFE;">Business</span> !'],
+      strings: ['Bonjour  '+ userFirstName +' !',' Je m\'appelle <span style="color:#FE981E;">Curiosity</span>.', 'Parlons de votre <span style="color:#E60CFE;">Business</span> !'],
       typeSpeed: 50,
       backSpeed: 25,
       backDelay: 2000,
